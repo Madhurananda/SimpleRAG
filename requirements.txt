@@ -1,0 +1,11 @@
+streamlit
+python-dotenv
+langchain
+langchain-community
+langchain-groq
+langchain-text-splitters
+faiss-cpu
+beautifulsoup4
+requests
+pandas
+numpy

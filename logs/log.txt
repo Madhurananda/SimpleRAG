@@ -1,0 +1,178 @@
+============================================================
+🧪 Parallel Scraper Test with Caching
+============================================================
+
+📅 Scraping years: [2020, 2021, 2022, 2023, 2024, 2025]
+🔄 No cache found or force_scrape=True. Scraping fresh data...
+
+📚 Scraping Interspeech 2020 with 16 workers...
+✅ Found 1035 papers for 2020
+  Progress: 50/1035 papers scraped
+  Progress: 100/1035 papers scraped
+  Progress: 150/1035 papers scraped
+  Progress: 200/1035 papers scraped
+  Progress: 250/1035 papers scraped
+  Progress: 300/1035 papers scraped
+  Progress: 350/1035 papers scraped
+  Progress: 400/1035 papers scraped
+  Progress: 450/1035 papers scraped
+  Progress: 500/1035 papers scraped
+  Progress: 550/1035 papers scraped
+  Progress: 600/1035 papers scraped
+  Progress: 650/1035 papers scraped
+  Progress: 700/1035 papers scraped
+  Progress: 750/1035 papers scraped
+  Progress: 800/1035 papers scraped
+  Progress: 850/1035 papers scraped
+  Progress: 900/1035 papers scraped
+  Progress: 950/1035 papers scraped
+  Progress: 1000/1035 papers scraped
+  ✅ Scraped 1035 papers with abstracts for 2020
+
+📚 Scraping Interspeech 2021 with 16 workers...
+✅ Found 999 papers for 2021
+  Progress: 50/999 papers scraped
+  Progress: 100/999 papers scraped
+  Progress: 150/999 papers scraped
+  Progress: 200/999 papers scraped
+  Progress: 250/999 papers scraped
+  Progress: 300/999 papers scraped
+  Progress: 350/999 papers scraped
+  Progress: 400/999 papers scraped
+  Progress: 450/999 papers scraped
+  Progress: 500/999 papers scraped
+  Progress: 550/999 papers scraped
+  Progress: 600/999 papers scraped
+  Progress: 650/999 papers scraped
+  Progress: 700/999 papers scraped
+  Progress: 750/999 papers scraped
+  Progress: 800/999 papers scraped
+  Progress: 850/999 papers scraped
+  Progress: 900/999 papers scraped
+  Progress: 950/999 papers scraped
+  ✅ Scraped 999 papers with abstracts for 2021
+
+📚 Scraping Interspeech 2022 with 16 workers...
+✅ Found 1123 papers for 2022
+  Progress: 50/1123 papers scraped
+  Progress: 100/1123 papers scraped
+  Progress: 150/1123 papers scraped
+  Progress: 200/1123 papers scraped
+  Progress: 250/1123 papers scraped
+  Progress: 300/1123 papers scraped
+  Progress: 350/1123 papers scraped
+  Progress: 400/1123 papers scraped
+  Progress: 450/1123 papers scraped
+  Progress: 500/1123 papers scraped
+  Progress: 550/1123 papers scraped
+  Progress: 600/1123 papers scraped
+  Progress: 650/1123 papers scraped
+  Progress: 700/1123 papers scraped
+  Progress: 750/1123 papers scraped
+  Progress: 800/1123 papers scraped
+  Progress: 850/1123 papers scraped
+  Progress: 900/1123 papers scraped
+  Progress: 950/1123 papers scraped
+  Progress: 1000/1123 papers scraped
+  Progress: 1050/1123 papers scraped
+  Progress: 1100/1123 papers scraped
+  ✅ Scraped 1123 papers with abstracts for 2022
+
+📚 Scraping Interspeech 2023 with 16 workers...
+✅ Found 1141 papers for 2023
+  Progress: 50/1141 papers scraped
+  Progress: 100/1141 papers scraped
+  Progress: 150/1141 papers scraped
+  Progress: 200/1141 papers scraped
+  Progress: 250/1141 papers scraped
+  Progress: 300/1141 papers scraped
+  Progress: 350/1141 papers scraped
+  Progress: 400/1141 papers scraped
+  Progress: 450/1141 papers scraped
+  Progress: 500/1141 papers scraped
+  Progress: 550/1141 papers scraped
+  Progress: 600/1141 papers scraped
+  Progress: 650/1141 papers scraped
+  Progress: 700/1141 papers scraped
+  Progress: 750/1141 papers scraped
+  Progress: 800/1141 papers scraped
+  Progress: 850/1141 papers scraped
+  Progress: 900/1141 papers scraped
+  Progress: 950/1141 papers scraped
+  Progress: 1000/1141 papers scraped
+  Progress: 1050/1141 papers scraped
+  Progress: 1100/1141 papers scraped
+  ✅ Scraped 1141 papers with abstracts for 2023
+
+📚 Scraping Interspeech 2024 with 16 workers...
+✅ Found 1065 papers for 2024
+  Progress: 50/1065 papers scraped
+  Progress: 100/1065 papers scraped
+  Progress: 150/1065 papers scraped
+  Progress: 200/1065 papers scraped
+  Progress: 250/1065 papers scraped
+  Progress: 300/1065 papers scraped
+  Progress: 350/1065 papers scraped
+  Progress: 400/1065 papers scraped
+  Progress: 450/1065 papers scraped
+  Progress: 500/1065 papers scraped
+  Progress: 550/1065 papers scraped
+  Progress: 600/1065 papers scraped
+  Progress: 650/1065 papers scraped
+  Progress: 700/1065 papers scraped
+  Progress: 750/1065 papers scraped
+  Progress: 800/1065 papers scraped
+  Progress: 850/1065 papers scraped
+  Progress: 900/1065 papers scraped
+  Progress: 950/1065 papers scraped
+  Progress: 1000/1065 papers scraped
+  Progress: 1050/1065 papers scraped
+  ✅ Scraped 1065 papers with abstracts for 2024
+
+📚 Scraping Interspeech 2025 with 16 workers...
+✅ Found 1179 papers for 2025
+  Progress: 50/1179 papers scraped
+  Progress: 100/1179 papers scraped
+  Progress: 150/1179 papers scraped
+  Progress: 200/1179 papers scraped
+  Progress: 250/1179 papers scraped
+  Progress: 300/1179 papers scraped
+  Progress: 350/1179 papers scraped
+  Progress: 400/1179 papers scraped
+  Progress: 450/1179 papers scraped
+  Progress: 500/1179 papers scraped
+  Progress: 550/1179 papers scraped
+  Progress: 600/1179 papers scraped
+  Progress: 650/1179 papers scraped
+  Progress: 700/1179 papers scraped
+  Progress: 750/1179 papers scraped
+  Progress: 800/1179 papers scraped
+  Progress: 850/1179 papers scraped
+  Progress: 900/1179 papers scraped
+  Progress: 950/1179 papers scraped
+  Progress: 1000/1179 papers scraped
+  Progress: 1050/1179 papers scraped
+  Progress: 1100/1179 papers scraped
+  Progress: 1150/1179 papers scraped
+  ✅ Scraped 1179 papers with abstracts for 2025
+
+✅ Total papers scraped across all years: 6542
+✅ Saved 6542 papers to data/interspeech/interspeech_2020_2021_2022_2023_2024_2025.json
+
+📊 Total papers with abstracts: 6542
+
+📈 Statistics:
+   Number of papers: 6,542
+   Total characters: 8,273,456
+   Total words: 1,150,273
+   Total tokens (chars/4 (estimate)): 2,068,364
+   Estimated embedding cost: $41.37
+
+🧠 Dementia-related papers: 4939
+
+   Sample dementia papers:
+   1. Effect of Adding Positional Information on Convolutional Neural Networks for End-to-End Speech Recognition
+   2. Neural Spatio-Temporal Beamformer for Target Speech Separation
+   3. BLSTM-Driven Stream Fusion for Automatic Speech Recognition: Novel Methods and a Multi-Size Window Fusion Example
+
+✅ Done.
