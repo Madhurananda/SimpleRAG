@@ -46,6 +46,57 @@ Features:
 
 ---
 
+<h2>🎥 Application Demo</h2>
+
+<h3>🧠 Unified RAG Platform</h3>
+
+<p align="center">
+  <img width="2160" height="1016" alt="Screenshot 2026-07-31 at 16 15 16" src="https://github.com/user-attachments/assets/b772a05a-e80a-40d2-b3cb-b0ea8d8115d5" />
+</p>
+
+
+---
+
+<h2>📄 HR Policy Assistant</h2>
+
+<p align="center">
+  <img width="739" height="939" alt="Screenshot 2026-07-31 at 15 49 49" src="https://github.com/user-attachments/assets/663de821-eebe-4a64-a153-1736234e49e5" />
+</p>
+
+---
+
+<h2>🎤 Interspeech Research Assistant</h2>
+
+<p align="center">
+  <img width="1648" height="981" alt="Screenshot 2026-07-31 at 15 47 25" src="https://github.com/user-attachments/assets/c71c6580-83d6-41c6-a9c5-008a86642575" />
+</p>
+
+---
+
+<h2>📈 LangSmith Tracing</h2>
+
+<p align="center">
+  <img src="images/langsmith.png" width="90%"><img width="2288" height="1071" alt="Screenshot 2026-07-31 at 16 05 04" src="https://github.com/user-attachments/assets/fd108909-2249-437c-b951-54aa80d479df" />
+</p>
+
+<p align="center">
+Production tracing showing agent execution, tool calls, latency and debugging.
+</p>
+
+---
+
+<h2>📊 LangFuse Observability</h2>
+
+<p align="center">
+  <img width="2292" height="1037" alt="Screenshot 2026-07-31 at 16 05 21" src="https://github.com/user-attachments/assets/1eacd8b5-39c7-4dc7-a8b8-278f68719bff" />
+</p>
+
+<p align="center">
+LLM observability dashboard showing traces, token usage, cost and request analytics.
+</p>
+
+---
+
 ## ✨ Key Features
 
 - Modular RAG architecture
