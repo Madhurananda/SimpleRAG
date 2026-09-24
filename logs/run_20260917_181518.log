@@ -1,0 +1,20 @@
+2026-09-17 18:15:22,412 | INFO | hr_assistant.evaluation | Dataset 'hr-policy-qna' already exists, reusing it
+2026-09-17 18:15:22,613 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-09-17 18:15:22,613 | INFO | faiss.loader | Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'")
+2026-09-17 18:15:22,613 | INFO | faiss.loader | Loading faiss with AVX2 support.
+2026-09-17 18:15:22,613 | INFO | faiss.loader | Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-09-17 18:15:22,613 | INFO | faiss.loader | Loading faiss.
+2026-09-17 18:15:23,067 | INFO | faiss.loader | Successfully loaded faiss.
+2026-09-17 18:15:26,590 | INFO | hr_assistant.evaluation | Running evaluation against dataset 'hr-policy-qna'
+2026-09-17 18:15:35,244 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-17 18:15:35,729 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-17 18:15:37,759 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-17 18:15:38,830 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-17 18:15:47,565 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-17 18:15:48,269 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-17 18:16:03,978 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-17 18:16:04,518 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-17 18:16:06,667 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"
+2026-09-17 18:16:07,462 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 200 OK"

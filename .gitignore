@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Virtual environments
+ragenv/
+venv/
+.venv/
+env/
+ENV/
+
+# Environment variables (CRITICAL — never commit)
+.env
+.env.local
+.env.*.local
+
+# Jupyter Notebooks (if any)
+.ipynb_checkpoints/
+*.ipynb
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# IDE files
+.vscode/
+.idea/
+*.iml
+
+# Docker
+*.pid
+*.sock

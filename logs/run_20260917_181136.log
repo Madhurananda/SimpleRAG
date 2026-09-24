@@ -1,0 +1,913 @@
+2026-09-17 18:11:40,015 | INFO | hr_assistant.evaluation | Creating dataset 'hr-policy-qna' with 10 example(s)
+2026-09-17 18:11:40,515 | INFO | faiss.loader | Loading faiss with AVX512 support.
+2026-09-17 18:11:40,515 | INFO | faiss.loader | Could not load library with AVX512 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx512'")
+2026-09-17 18:11:40,515 | INFO | faiss.loader | Loading faiss with AVX2 support.
+2026-09-17 18:11:40,515 | INFO | faiss.loader | Could not load library with AVX2 support due to:
+ModuleNotFoundError("No module named 'faiss.swigfaiss_avx2'")
+2026-09-17 18:11:40,515 | INFO | faiss.loader | Loading faiss.
+2026-09-17 18:11:40,968 | INFO | faiss.loader | Successfully loaded faiss.
+2026-09-17 18:11:58,064 | INFO | hr_assistant.evaluation | Running evaluation against dataset 'hr-policy-qna'
+2026-09-17 18:12:06,687 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-17 18:12:06,766 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator _wrapped_evaluator> on run 01a0b05a-8c84-7c82-96aa-6c2383003594: OpenAIInvalidRequestError("Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}")
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1867, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 193, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1378, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1151, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/_runner.py", line 1679, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+            ^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3454, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+2026-09-17 18:12:07,896 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-17 18:12:07,925 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0b05a-8c84-7c82-96aa-6c2383003594: OpenAIInvalidRequestError("Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}")
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1867, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 193, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1378, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1151, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/_runner.py", line 1679, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/hr_assistant/evaluation.py", line 110, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+            ^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3454, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+2026-09-17 18:12:18,207 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-17 18:12:18,230 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator _wrapped_evaluator> on run 01a0b05a-adf6-7ca0-b489-b4ef071189da: OpenAIInvalidRequestError("Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}")
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1867, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 193, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1378, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1151, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/_runner.py", line 1679, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+            ^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3454, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+2026-09-17 18:12:18,378 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-17 18:12:18,383 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0b05a-adf6-7ca0-b489-b4ef071189da: OpenAIInvalidRequestError("Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}")
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1867, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 193, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1378, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1151, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/_runner.py", line 1679, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/hr_assistant/evaluation.py", line 110, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+            ^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3454, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+2026-09-17 18:12:25,054 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-17 18:12:25,073 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator _wrapped_evaluator> on run 01a0b05a-d6d0-7452-a2cd-488f79c2dfda: OpenAIInvalidRequestError("Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}")
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1867, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 193, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1378, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1151, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/_runner.py", line 1679, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+            ^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3454, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+2026-09-17 18:12:25,718 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-17 18:12:25,724 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0b05a-d6d0-7452-a2cd-488f79c2dfda: OpenAIInvalidRequestError("Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}")
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1867, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 193, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1378, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1151, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/_runner.py", line 1679, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/hr_assistant/evaluation.py", line 110, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+            ^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3454, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+2026-09-17 18:12:27,266 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-17 18:12:27,288 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator _wrapped_evaluator> on run 01a0b05a-f37d-7c21-a04b-83e954aaeaee: OpenAIInvalidRequestError("Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}")
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1867, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 193, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1378, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1151, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/_runner.py", line 1679, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+            ^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3454, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+2026-09-17 18:12:27,487 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-17 18:12:27,491 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0b05a-f37d-7c21-a04b-83e954aaeaee: OpenAIInvalidRequestError("Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}")
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1867, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 193, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1378, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1151, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/_runner.py", line 1679, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/hr_assistant/evaluation.py", line 110, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+            ^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3454, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+2026-09-17 18:12:29,630 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-17 18:12:29,681 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator _wrapped_evaluator> on run 01a0b05a-fa64-7550-b80a-f88fb705a2f9: OpenAIInvalidRequestError("Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}")
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1867, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 193, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1378, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1151, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/_runner.py", line 1679, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+            ^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3454, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+2026-09-17 18:12:29,833 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-17 18:12:29,840 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0b05a-fa64-7550-b80a-f88fb705a2f9: OpenAIInvalidRequestError("Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}")
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1867, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 193, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1378, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1151, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/_runner.py", line 1679, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/hr_assistant/evaluation.py", line 110, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+            ^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3454, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+2026-09-17 18:12:35,446 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-17 18:12:35,464 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator _wrapped_evaluator> on run 01a0b05b-0391-7f50-b88a-97d43e9bb312: OpenAIInvalidRequestError("Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}")
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1867, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 193, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1378, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1151, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/_runner.py", line 1679, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+            ^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3454, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+2026-09-17 18:12:35,610 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-17 18:12:35,614 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0b05b-0391-7f50-b88a-97d43e9bb312: OpenAIInvalidRequestError("Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}")
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1867, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 193, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1378, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1151, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/_runner.py", line 1679, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/hr_assistant/evaluation.py", line 110, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+            ^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3454, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+2026-09-17 18:12:41,991 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-17 18:12:42,008 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator _wrapped_evaluator> on run 01a0b05b-1a1f-7280-b809-a327d530e278: OpenAIInvalidRequestError("Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}")
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1867, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 193, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1378, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1151, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/_runner.py", line 1679, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+            ^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3454, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+2026-09-17 18:12:42,158 | INFO | httpx2 | HTTP Request: POST https://api.portkey.ai/v1/chat/completions "HTTP/1.1 400 Bad Request"
+2026-09-17 18:12:42,162 | ERROR | langsmith.evaluation._runner | Error running evaluator <DynamicRunEvaluator groundedness_evaluator> on run 01a0b05b-1a1f-7280-b809-a327d530e278: OpenAIInvalidRequestError("Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}")
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1867, in _generate
+    self.root_client.chat.completions.with_raw_response.parse(**payload)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_legacy_response.py", line 369, in wrapped
+    return cast(LegacyAPIResponse[R], func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/resources/chat/completions/completions.py", line 193, in parse
+    return self._post(
+           ^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1378, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openai/_base_client.py", line 1151, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.BadRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/_runner.py", line 1679, in _run_evaluators
+    evaluator_response = evaluator.evaluate_run(  # type: ignore[call-arg]
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 370, in evaluate_run
+    result = self.func(
+             ^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langsmith/evaluation/evaluator.py", line 791, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/hr_assistant/evaluation.py", line 110, in groundedness_evaluator
+    return groundedness_judge(outputs={"answer": outputs["answer"]}, context=outputs["context"])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 600, in _wrapped_evaluator
+    res = _run_evaluator_untyped(
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 293, in _run_evaluator_untyped
+    results = _run_scorer(**kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/utils.py", line 206, in _run_scorer
+    score = scorer(**kwargs)
+            ^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/openevals/llm.py", line 268, in get_score
+    response = judge_with_structured_output.invoke(normalized_messages)  # type: ignore
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 3454, in invoke
+    input_ = context.run(step.invoke, input_, config, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/runnables/base.py", line 6014, in invoke
+    return self.bound.invoke(
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 488, in invoke
+    self.generate_prompt(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1877, in generate_prompt
+    return self.generate(prompt_messages, stop=stop, callbacks=callbacks, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 1684, in generate
+    self._generate_with_cache(
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_core/language_models/chat_models.py", line 2022, in _generate_with_cache
+    result = self._generate(
+             ^^^^^^^^^^^^^^^
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 1907, in _generate
+    _handle_openai_bad_request(e)
+  File "/home/madhu/research_space/cchat/User/ac1mpax/wills_edu/ragenv/lib/python3.11/site-packages/langchain_openai/chat_models/base.py", line 644, in _handle_openai_bad_request
+    raise OpenAIInvalidRequestError(
+langchain_openai.chat_models.base.OpenAIInvalidRequestError: Error code: 400 - {'status': 'failure', 'message': 'Following keys are not valid: hrpolicy'}

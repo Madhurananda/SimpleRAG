@@ -1,0 +1,322 @@
+[
+  {
+    "paper_id": "li24x_interspeech",
+    "title": "Speakers Unembedded: Embedding-free Approach to Long-form Neural Diarization",
+    "authors": "Li, Xiang, Govindan, Vivek, Paturi, Rohit, Srinivasan, Sundararajan",
+    "abstract": "Speakers Unembedded: Embedding-free Approach to Long-form Neural Diarization Speakers Unembedded: Embedding-free Approach to Long-form Neural Diarization Xiang Li, Vivek Govindan, Rohit Paturi, Sundararajan Srinivasan End-to-end neural diarization (EEND) models offer significant improvements over traditional embedding-based Speaker Diarization (SD) approaches but falls short on generalizing to long-form audio with large number of speakers. EEND-vector-clustering method mitigates this by combining local EEND with global clustering of speaker embeddings from local windows, but this requires an additional speaker embedding framework alongside the EEND module. In this paper, we propose a novel framework applying EEND both locally and globally for long-form audio without separate speaker embeddings. This approach achieves significant relative DER reduction of 13% and 10% over the conventional 1-pass EEND on Callhome American English and RT03-CTS datasets respectively and marginal improvements over EEND-vector-clustering without the need for additional speaker embeddings. Furthermore, we discuss the computational complexity of our proposed framework and explore strategies for reducing processing times.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/li24x_interspeech.html"
+  },
+  {
+    "paper_id": "harkonen24_interspeech",
+    "title": "EEND-M2F: Masked-attention mask transformers for speaker diarization",
+    "authors": "HÃ¤rkÃ¶nen, Marc, Broughton, Samuel J., Samarakoon, Lahiru",
+    "abstract": "EEND-M2F: Masked-attention mask transformers for speaker diarization EEND-M2F: Masked-attention mask transformers for speaker diarization Marc HÃ¤rkÃ¶nen, Samuel J. Broughton, Lahiru Samarakoon In this paper, we make the explicit connection between image segmentation methods and end-to-end diarization methods. From these insights, we propose a novel, fully end-to-end diarization model, EEND-M2F, based on the Mask2Former architecture. Speaker representations are computed in parallel using a stack of transformer decoders, in which irrelevant frames are explicitly masked from the cross attention using predictions from previous layers. EEND-M2F is efficient, and truly end-to-end, eliminating the need for additional segmentation models or clustering algorithms. Our model achieves state-of-the-art performance on several public datasets, such as AMI, AliMeeting and RAMC. Most notably our DER of 16.07% on DIHARD-III is the first major improvement upon the challenge winning system.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/harkonen24_interspeech.html"
+  },
+  {
+    "paper_id": "arya24_interspeech",
+    "title": "Exploiting Wavelet Scattering Transform for an Unsupervised Speaker Diarization in Deep Neural Network Framework",
+    "authors": "Arya, Arunav, Ali, Murtiza, Nathwani, Karan",
+    "abstract": "Exploiting Wavelet Scattering Transform for an Unsupervised Speaker Diarization in Deep Neural Network Framework Exploiting Wavelet Scattering Transform for an Unsupervised Speaker Diarization in Deep Neural Network Framework Arunav Arya, Murtiza Ali, Karan Nathwani Advancements in diarization have prompted the development of supervised learning models. These models extract fixed-length embeddings from audio files of varying lengths. Despite challenges, commercial API models like Speechbrain, Resemblyzer, Whisper AI, and Pyannote have addressed this issue. However, these models typically utilize Mel-Frequency Cepstral Coefficients (MFCC) features, convolution layers, and dimension reduction techniques to create embeddings. Our proposal method introduces a Wavelet Scattering Transform (WST) that prioritizes information content, allowing users to customize the shape of embeddings according to their model requirements. Coupling WST with AutoEncoders (WST-AE) in a residual manner enhances semantic latent space representations, which can be clustered segment-wise in an unsupervised manner. Testing on AMI and VoxConverse datasets has shown a reduction in Diarization Error Rate (DER) with fewer training parameters and without the need for separate embedding models.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/arya24_interspeech.html"
+  },
+  {
+    "paper_id": "niizumi24_interspeech",
+    "title": "M2D-CLAP: Masked Modeling Duo Meets CLAP for Learning General-purpose Audio-Language Representation",
+    "authors": "Niizumi, Daisuke, Takeuchi, Daiki, Ohishi, Yasunori, Harada, Noboru, Yasuda, Masahiro, Tsubaki, Shunsuke, Imoto, Keisuke",
+    "abstract": "M2D-CLAP: Masked Modeling Duo Meets CLAP for Learning General-purpose Audio-Language Representation M2D-CLAP: Masked Modeling Duo Meets CLAP for Learning General-purpose Audio-Language Representation Daisuke Niizumi, Daiki Takeuchi, Yasunori Ohishi, Noboru Harada, Masahiro Yasuda, Shunsuke Tsubaki, Keisuke Imoto Contrastive language-audio pre-training (CLAP) enables zero-shot (ZS) inference of audio and exhibits promising performance in several classification tasks. However, conventional audio representations are still crucial for many tasks where ZS is not applicable (e.g., regression problems). Here, we explore a new representation, a general-purpose audio-language representation, that performs well in both ZS and transfer learning. To do so, we propose a new method, M2D-CLAP, which combines self-supervised learning Masked Modeling Duo (M2D) and CLAP. M2D learns an effective representation to model audio signals, and CLAP aligns the representation with text embedding. As a result, M2D-CLAP learns a versatile representation that allows for both ZS and transfer learning. Experiments show that M2D-CLAP performs well on linear evaluation, fine-tuning, and ZS classification with a GTZAN state-of-the-art of 75.17%, thus achieving a general-purpose audio-language representation.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/niizumi24_interspeech.html"
+  },
+  {
+    "paper_id": "mohapatra24b_interspeech",
+    "title": "2.5D Vocal Tract Modeling: Bridging Low-Dimensional Efficiency with 3D Accuracy",
+    "authors": "Mohapatra, Debasish Ray, Zappi, Victor, Fels, Sidney",
+    "abstract": "2.5D Vocal Tract Modeling: Bridging Low-Dimensional Efficiency with 3D Accuracy 2.5D Vocal Tract Modeling: Bridging Low-Dimensional Efficiency with 3D Accuracy Debasish Ray Mohapatra, Victor Zappi, Sidney Fels We introduce an extended 2D (2.5D) wave solver that blends the computational efficiency of low-dimensional models with the accuracy of 3D approaches tailored for simulating tube geometries similar to vocal tracts. Unlike 1D and 2D models limited to radial symmetry, our lightweight 2.5D finite-difference time-domain solver handles irregular geometries bound only to mid-sagittal symmetry. We validated our model against state-of-the-art 2D and 3D solvers for three different vocal tract geometries, each having a unique cross-sectional shape. Results show that the frequency response of 2.5D simulations closely aligns with 3D up to 12 kHz with a Pearson correlation coefficient greater than 0.8 for all geometries. The proposed model also produces effects of higher-order modes associated with non-cylindrical vocal tracts, surpassing the limitations of the advanced 1D and 2D solvers. Moreover, it achieved a speed-up factor close to an order of magnitude compared to the 2D and 3D models.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/mohapatra24b_interspeech.html"
+  },
+  {
+    "paper_id": "huang24d_interspeech",
+    "title": "On the Success and Limitations of Auxiliary Network Based Word-Level End-to-End Neural Speaker Diarization",
+    "authors": "Huang, Yiling, Wang, Weiran, Zhao, Guanlong, Liao, Hank, Xia, Wei, Wang, Quan",
+    "abstract": "On the Success and Limitations of Auxiliary Network Based Word-Level End-to-End Neural Speaker Diarization On the Success and Limitations of Auxiliary Network Based Word-Level End-to-End Neural Speaker Diarization Yiling Huang, Weiran Wang, Guanlong Zhao, Hank Liao, Wei Xia, Quan Wang While standard speaker diarization attempts to answer the question \"who spoke when\", many realistic applications are interested in determining \"who spoke what\". In both the conventional modularized approach and the more recent end-to-end neural diarization (EEND), an additional automatic speech recognition (ASR) model and an orchestration algorithm are required to associate speakers with recognized words. In this paper, we propose Word-level End-to-End Neural Diarization (WEEND) with auxiliary network, a multi-task learning algorithm that performs end-to-end ASR and speaker diarization in the same architecture by sharing blank logits. Such a framework allows easily adding diarization capabilities to any existing RNN-T based ASR models without Word Error Rate (WER) regressions. Experimental results demonstrate that WEEND outperforms a strong turn-based diarization baseline system on all 2-speaker short-form scenarios, with the capability to generalize to audio lengths of 5 minutes.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/huang24d_interspeech.html"
+  },
+  {
+    "paper_id": "fujita24_interspeech",
+    "title": "Audio Fingerprinting with Holographic Reduced Representations",
+    "authors": "Fujita, Yusuke, Komatsu, Tatsuya",
+    "abstract": "Audio Fingerprinting with Holographic Reduced Representations Audio Fingerprinting with Holographic Reduced Representations Yusuke Fujita, Tatsuya Komatsu This paper proposes an audio fingerprinting model with holographic reduced representation (HRR). The proposed method reduces the number of stored fingerprints, whereas conventional neural audio fingerprinting requires many fingerprints for each audio track to achieve high accuracy and time resolution. We utilize HRR to aggregate multiple fingerprints into a composite fingerprint via circular convolution and summation, resulting in fewer fingerprints with the same dimensional space as the original. Our search method efficiently finds a combined fingerprint in which a query fingerprint exists. Using HRR's inverse operation, it can recover the relative position within a combined fingerprint, retaining the original time resolution. Experiments show that our method can reduce the number of fingerprints with modest accuracy degradation while maintaining the time resolution, outperforming simple decimation and summation-based aggregation methods.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/fujita24_interspeech.html"
+  },
+  {
+    "paper_id": "xue24_interspeech",
+    "title": "Towards a better understanding of receptive multilingualism: listening conditions and priming effects",
+    "authors": "Xue, Wei, Yuen, Ivan, MÃ¶bius, Bernd",
+    "abstract": "Towards a better understanding of receptive multilingualism: listening conditions and priming effects Towards a better understanding of receptive multilingualism: listening conditions and priming effects Wei Xue, Ivan Yuen, Bernd MÃ¶bius Receptive multilingualism is a form of communication where speakers can comprehend an utterance of a foreign language (Lx) using their native language (L1) when L1 and Lx share similarities in, e.g., vocabulary and pronunciation. The success of receptive multilingualism can be tested by examining accuracy and reaction time of auditory word recognition (AWR) of target words in lexical decision tasks. AWR in such tasks can be affected by adverse listening conditions due to environmental noises and by the presence of a preceding prime word. This study explores whether AWR of L1 in Lx-L1 pairs (Lx = Dutch; L1 = German or English) will be affected by different degrees of similarities in their phonology and semantics and whether such an influence will differ as a function of listening condition. We observed less accurate and slower responses without semantic similarity but a null effect on accuracy without phonological overlap. The interaction with listening conditions is language-dependent.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/xue24_interspeech.html"
+  },
+  {
+    "paper_id": "trancoso24_interspeech",
+    "title": "Towards Responsible Speech Processing",
+    "authors": "Trancoso, Isabel",
+    "abstract": "Towards Responsible Speech Processing Towards Responsible Speech Processing Isabel Trancoso Responsible AI may not be a consensuous concept and the list of the so called pillars may not be uniquely defined either. Nonetheless, their message is clear and urgent. In this talk, Iâll address some of the pillars of responsible speech processing, focusing on privacy, explainability (namely for health applications), fairness/inclusion and sustainability. Rather than attempting a comprehensive survey of all the efforts in these directions, I will present my own perspective of how these pillars should inform the next generation of speech research.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/trancoso24_interspeech.html"
+  },
+  {
+    "paper_id": "chowdhury24_interspeech",
+    "title": "Investigating Confidence Estimation Measures for Speaker Diarization",
+    "authors": "Chowdhury, Anurag, Misra, Abhinav, Fuhs, Mark C., Woszczyna, Monika",
+    "abstract": "Investigating Confidence Estimation Measures for Speaker Diarization Investigating Confidence Estimation Measures for Speaker Diarization Anurag Chowdhury, Abhinav Misra, Mark C. Fuhs, Monika Woszczyna Speaker diarization systems segment a conversation recording based on the speakers' identity. Such systems can misclassify the speaker of a portion of audio due to a variety of factors, such as speech pattern variation, background noise, and overlapping speech. These errors propagate to, and can adversely affect, downstream systems that rely on the speaker's identity, such as speaker-adapted speech recognition. One of the ways to mitigate these errors is to provide segment-level diarization confidence scores to downstream systems. In this work, we investigate multiple methods for generating diarization confidence scores, including those derived from the original diarization system and those derived from an external model. Our experiments across multiple datasets and diarization systems demonstrate that the most competitive confidence score methods can isolate 30% of the diarization errors within segments with the lowest 10% of confidence scores.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/chowdhury24_interspeech.html"
+  },
+  {
+    "paper_id": "wesolek24_interspeech",
+    "title": "The influence of L2 accent strength and different error types on personality trait ratings",
+    "authors": "Wesolek, Sarah, Gulgowski, Piotr, Blaszczak, Joanna, Zygis, Marzena",
+    "abstract": "The influence of L2 accent strength and different error types on personality trait ratings The influence of L2 accent strength and different error types on personality trait ratings Sarah Wesolek, Piotr Gulgowski, Joanna Blaszczak, Marzena Zygis Accents can have a detrimental impact on interpersonal evaluations. However, the influence of specific language errors remains less understood. The present study tests how accent strength (constructed as a graded factor obtained through ratings) impacts evaluations of speakersâ personality traits (warmth, competence) in the German-Polish context. Moreover, this study intertwines accentedness with two L2 typical error types: phonological (vowel substitutions) and grammatical (gender agreement errors). Results indicate that L2 accent strength had an unfavorable effect on speakersâ competence but positively influenced warmth. The perceived competence was reduced by both error types (phonological, grammatical), while warmth was decreased solely by grammatical errors. The error effects diminished with increasing L2 accent. Finally, Polish participants were less sensitive towards errors and particularly resistant towards phonological substitutions when rating speakersâ personality.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/wesolek24_interspeech.html"
+  },
+  {
+    "paper_id": "meyer24b_interspeech",
+    "title": "RAST: A Reference-Audio Synchronization Tool for Dubbed Content",
+    "authors": "Meyer, David, Abecassis, Eitan, Fernandez-Labrador, Clara, Schroers, Christopher",
+    "abstract": "RAST: A Reference-Audio Synchronization Tool for Dubbed Content RAST: A Reference-Audio Synchronization Tool for Dubbed Content David Meyer, Eitan Abecassis, Clara Fernandez-Labrador, Christopher Schroers In the film industry, audio-video synchronization issues are considered major quality defects and key drivers of viewer disengagement. This is especially true for dubbed content, which is more prone to these errors due to the added manual process of replacing the original speech with a translated version. Despite their potential benefit for dubbed media production, automatic sync detection methods are seldom explored. In this paper, we propose a Transformer-based Siamese network for dubbed audio synchronization detection. Based on a large dataset of dubbed entertainment, we demonstrate that, compared to previous methods, our approach is more robust in detecting the misalignment introduced by translated speech segments. While our method addresses the previously studied constant synchronization errors, our model is the first to handle the frequent issue of intermittent offsets.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/meyer24b_interspeech.html"
+  },
+  {
+    "paper_id": "zhao24h_interspeech",
+    "title": "MINT: Boosting Audio-Language Model via Multi-Target Pre-Training and Instruction Tuning",
+    "authors": "Zhao, Hang, Xin, Yifei, Yu, Zhesong, Zhu, Bilei, Lu, Lu, Ma, Zejun",
+    "abstract": "MINT: Boosting Audio-Language Model via Multi-Target Pre-Training and Instruction Tuning MINT: Boosting Audio-Language Model via Multi-Target Pre-Training and Instruction Tuning Hang Zhao, Yifei Xin, Zhesong Yu, Bilei Zhu, Lu Lu, Zejun Ma In the realm of audio-language pre-training (ALP), the challenge of achieving cross-modal alignment is significant. Moreover, the integration of audio inputs with diverse distributions and task variations poses challenges in developing generic audio-language models. In this study, we present MINT, a novel ALP framework boosting audio-language models through multi-target pre-training and instruction tuning. MINT leverages the strength of frozen pre-trained audio encoders and large language models (LLM) to improve audio-language pretraining, enabling effective transferablility to both audio-text understanding and generation tasks. To address the modality gap, we introduce Bridge-Net, a trainable module that enhances cross-modality alignment and the modelâs ability to follow in- structions for a variety of audio-text tasks. Bridge-Net is pivotal within MINT, initially enhancing audio-language representation learning through a multi-target pre-training approach. Subsequently, Bridge-Net further boosts audio-to-language generative learning by integrating a frozen language model with instruction tuning. This integration empowers MINT to extract features in a flexible and effective manner, specifically tailored to the provided instructions for diverse tasks. Experimental results demonstrate that MINT attains superior performance across various audio-language understanding and generation tasks, highlighting its robust generalization capabilities even in zero-shot scenarios.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/zhao24h_interspeech.html"
+  },
+  {
+    "paper_id": "chi24_interspeech",
+    "title": "Characterizing code-switching: Applying Linguistic Principles for Metric Assessment and Development",
+    "authors": "Chi, Jie, Wallington, Electra, Bell, Peter",
+    "abstract": "Characterizing code-switching: Applying Linguistic Principles for Metric Assessment and Development Characterizing code-switching: Applying Linguistic Principles for Metric Assessment and Development Jie Chi, Electra Wallington, Peter Bell With handling code-switching becoming an increasingly important topic in speech technology, driven by the expansion of low-resource and multilingual methodologies, it is vital that we recognize the diversity of code-switching as a phenomenon. We propose a framework that leverages linguistic findings as makeshift ground-truths to assess the quality and sufficiency of existing metrics designed to capture data-sets' differing code-switching styles. We also introduce a new metric, T-index, which leverages machine translation systems to capture properties of code-switched words in relation to the participating language pair. Through analysis of diverse Hindi-English and Mandarin-English datasets, we systematically explore how well these metrics align with linguistic intuition regarding code-switching richness levels in conversational versus technical domains.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/chi24_interspeech.html"
+  },
+  {
+    "paper_id": "li24ja_interspeech",
+    "title": "YOLOPitch: A Time-Frequency Dual-Branch YOLO Model for Pitch Estimation",
+    "authors": "Li, Xuefei, Huang, Hao, Hu, Ying, He, Liang, Zhang, Jiabao, Wang, Yuyi",
+    "abstract": "YOLOPitch: A Time-Frequency Dual-Branch YOLO Model for Pitch Estimation YOLOPitch: A Time-Frequency Dual-Branch YOLO Model for Pitch Estimation Xuefei Li, Hao Huang, Ying Hu, Liang He, Jiabao Zhang, Yuyi Wang Pitch estimation is of fundamental importance in audio processing and music information retrieval. YOLO is a well developed model designed for image target detection. Here we introduce YOLOv7 into pitch estimation task and improve by proposing time-frequency (TF) dual-branch into the model according to pitch perception of human auditory. An additional advantage of the model over the state-of-the-art (SOTA) models is that it only needs to add an unvoiced class without additional unvoiced/voiced detection to achieve joint pitch estimation and voiced determination. Experiments show for both music and speech, the proposed TF dual-branch can boost pitch estimation accuracy over the back-bone. Our model exhibits superior pitch estimation performance over the SOTA and shows minimal performance degradation in noisy condition. The overall accuracy on the MDB-stem-synth dataset peaks at 99.4%, and voicing determination F-score reaches 99.9%.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/li24ja_interspeech.html"
+  },
+  {
+    "paper_id": "yin24_interspeech",
+    "title": "AFL-Net: Integrating Audio, Facial, and Lip Modalities with a Two-step Cross-attention for Robust Speaker Diarization in the Wild",
+    "authors": "Yin, YongKang, Li, Xu, Shan, Ying, Zou, YueXian",
+    "abstract": "AFL-Net: Integrating Audio, Facial, and Lip Modalities with a Two-step Cross-attention for Robust Speaker Diarization in the Wild AFL-Net: Integrating Audio, Facial, and Lip Modalities with a Two-step Cross-attention for Robust Speaker Diarization in the Wild YongKang Yin, Xu Li, Ying Shan, YueXian Zou Speaker diarization in real-world videos presents significant challenges due to varying acoustic conditions, diverse scenes, the presence of off-screen speakers, etc. This paper builds upon a previous study (AVR-Net) and introduces a novel multi-modal speaker diarization system, AFL-Net. The proposed AFL-Net incorporates dynamic lip movement as an additional modality to enhance the identity distinction. Besides, unlike AVR-Net which extracts high-level representations from each modality independently, AFL-Net employs a two-step cross-attention mechanism to sufficiently fuse different modalities, resulting in more comprehensive information to enhance the performance. Moreover, we also incorporated a masking strategy during training, where the face and lip modalities are randomly obscured. This strategy enhances the impact of the audio modality on the system outputs. Experimental results demonstrate that AFL-Net outperforms state-of-the-art baselines, such as the AVR-Net and DyViSE.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/yin24_interspeech.html"
+  },
+  {
+    "paper_id": "liang24_interspeech",
+    "title": "Improving Audio Classification with Low-Sampled Microphone Input: An Empirical Study Using Model Self-Distillation",
+    "authors": "Liang, Dawei, Zhang, Alice, Harwath, David, Thomaz, Edison",
+    "abstract": "Improving Audio Classification with Low-Sampled Microphone Input: An Empirical Study Using Model Self-Distillation Improving Audio Classification with Low-Sampled Microphone Input: An Empirical Study Using Model Self-Distillation Dawei Liang, Alice Zhang, David Harwath, Edison Thomaz Acoustic scene and event classification is gaining traction in mobile health and wearable applications. Traditionally, relevant research focused on high-quality inputs (sampling rates >= 16 kHz). However, lower sampling rates (e.g., 1 kHz - 2 kHz) offer enhanced privacy and reduced power consumption, crucial for continuous mobile use. This study introduces efficient methods for optimizing pre-trained audio neural networks (PANNs) targeting low-quality audio, employing Born-Again self-distillation (BASD) and a cross-sampling-rate self-distillation (CSSD) strategy. Testing three PANNs with diverse mobile datasets reveals that both strategies boost model inference performance, yielding an absolute accuracy / F1 gain ranging from 1% to 6% compared to a baseline without distillation, while sampling at very low rates (1 kHz - 2 kHz). Notably, CSSD shows greater benefits, suggesting models trained on high-quality audio adapt better to lower resolutions, despite the shift in input quality.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/liang24_interspeech.html"
+  },
+  {
+    "paper_id": "pieper24_interspeech",
+    "title": "AlignNet: Learning dataset score alignment functions to enable better training of speech quality estimators",
+    "authors": "Pieper, Jaden, Voran, Stephen",
+    "abstract": "AlignNet: Learning dataset score alignment functions to enable better training of speech quality estimators AlignNet: Learning dataset score alignment functions to enable better training of speech quality estimators Jaden Pieper, Stephen Voran We develop two complementary advances for training no-reference (NR) speech quality estimators with independent datasets. Multi-dataset finetuning (MDF) pretrains an NR estimator on a single dataset and then finetunes it on multiple datasets at once, including the dataset used for pretraining. AlignNet uses an AudioNet to generate intermediate score estimates before using the Aligner to map intermediate estimates to the appropriate score range. AlignNet is agnostic to the choice of AudioNet so any successful NR speech quality estimator can benefit from its Aligner. The methods can be used in tandem, and we use two studies to show that they improve on current solutions: one study uses nine smaller datasets and the other uses four larger datasets. AlignNet with MDF improves on other solutions because it efficiently and effectively removes misalignments that impair the learning process, and thus enables successful training with larger amounts of more diverse data.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/pieper24_interspeech.html"
+  },
+  {
+    "paper_id": "ullah24_interspeech",
+    "title": "Reduce, Reuse, Recycle: Is Perturbed Data Better than Other Language Augmentation for Low Resource Self-Supervised Speech Models",
+    "authors": "Ullah, Asad, Ragano, Alessandro, Hines, Andrew",
+    "abstract": "Reduce, Reuse, Recycle: Is Perturbed Data Better than Other Language Augmentation for Low Resource Self-Supervised Speech Models Reduce, Reuse, Recycle: Is Perturbed Data Better than Other Language Augmentation for Low Resource Self-Supervised Speech Models Asad Ullah, Alessandro Ragano, Andrew Hines Self-supervised representation learning (SSRL) has demonstrated superior performance than supervised models for tasks including phoneme recognition. Training SSRL models poses a challenge for low-resource languages where sufficient pre-training data may not be available. A common approach is cross-lingual pre-training. Instead, we propose to use audio augmentation techniques, namely: pitch variation, noise addition, accented target language and other language speech to pre-train SSRL models in a low resource condition and evaluate phoneme recognition. Our comparisons found that a combined synthetic augmentations (noise/pitch) strategy outperformed accent and language knowledge transfer. Furthermore, we examined the scaling factor of augmented data to achieve equivalent performance to model pre-trained with target domain speech. Our findings suggest that for resource-constrained languages, combined augmentations can be a viable option than other augmentations.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/ullah24_interspeech.html"
+  },
+  {
+    "paper_id": "mu24_interspeech",
+    "title": "MFF-EINV2: Multi-scale Feature Fusion across Spectral-Spatial-Temporal Domains for Sound Event Localization and Detection",
+    "authors": "Mu, Da, Zhang, Zhicheng, Yue, Haobo",
+    "abstract": "MFF-EINV2: Multi-scale Feature Fusion across Spectral-Spatial-Temporal Domains for Sound Event Localization and Detection MFF-EINV2: Multi-scale Feature Fusion across Spectral-Spatial-Temporal Domains for Sound Event Localization and Detection Da Mu, Zhicheng Zhang, Haobo Yue Sound Event Localization and Detection (SELD) involves detecting and localizing sound events using multichannel sound recordings. Previously proposed Event-Independent Network V2 (EINV2) has achieved outstanding performance on SELD. However, it still faces challenges in effectively extracting features across spectral, spatial, and temporal domains. This paper proposes a three-stage network structure named Multi-scale Feature Fusion (MFF) module to fully extract multi-scale features across spectral, spatial, and temporal domains. The MFF module utilizes parallel subnetworks architecture to generate multi-scale spectral and spatial features. The TF-Convolution Module is employed to provide multi-scale temporal features. We incorporated MFF into EINV2 and term the proposed method as MFF-EINV2. Experimental results in 2022 and 2023 DCASE challenge task3 datasets show the effectiveness of our MFF-EINV2, which achieves state-of-the-art (SOTA) performance compared to published methods.",
+    "year": "2024",
+    "url": "https://www.isca-archive.org/interspeech_2024/mu24_interspeech.html"
+  },
+  {
+    "paper_id": "song25d_interspeech",
+    "title": "Lightweight Speech Enhancement Model Based on Harmonic Attention and Phase Estimation with Skin-Attachable Accelerometer",
+    "authors": "Song, Yonghun, Kim, Yeeun, Chung, Yoonyoung",
+    "abstract": "Lightweight Speech Enhancement Model Based on Harmonic Attention and Phase Estimation with Skin-Attachable Accelerometer Lightweight Speech Enhancement Model Based on Harmonic Attention and Phase Estimation with Skin-Attachable Accelerometer Yonghun Song, Yeeun Kim, Yoonyoung Chung Skin-attachable accelerometers (ACCs) capture speech vibrations through the skin, providing a noise-robust complement to microphone (MIC) signals. However, prior multi-modal models combining these signals face trade-offs between processing overhead and performance. This study proposes a lightweight ACC-assisted U-Net (LAU-Net) for real-time speech enhancement. The LAU-Net employs a harmonic attention module to enhance spectral clarity by emphasizing speech harmonics predicted from ACC signals while only increasing the parameter count from 92.29k to 92.98k. The phase estimation block of LAU-Net adaptively integrates ACC and MIC phases based on noise levels, eliminating the need for phase data training. The LAU-Net achieves a PESQ of 2.92 with 39M MACs/s on the TAPS dataset, demonstrating a balance between speech quality and computational efficiency. These results highlight the LAU-Net as a practical solution for robust and efficient speech processing with real-time edge deployment.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/song25d_interspeech.html"
+  },
+  {
+    "paper_id": "kumar25c_interspeech",
+    "title": "ArticulateX: End-to-End Monolingual Speech Translation in Articulator Space",
+    "authors": "Kumar, Vishal, Abrol, Vinayak",
+    "abstract": "ArticulateX: End-to-End Monolingual Speech Translation in Articulator Space ArticulateX: End-to-End Monolingual Speech Translation in Articulator Space Vishal Kumar, Vinayak Abrol We present ArticulateX, the first non-autoregressive direct speech-to-speech translation (S2ST) model that operates through an articulatory latent space, offering an efficient alternative to existing cascaded models. It consists of a direct speech-to-articulator encoder, a latent articulator-to-MelSpectrogram mapper, and a vocoder for high-fidelity speech synthesis. By leveraging articulatory representations, which are inherently language-agnostic, our model effectively captures speech dynamics, preserving speaker identity, prosody and expressiveness across languages. Unlike prior autoregressive models, ArticulateX eliminates the need for intermediate text, discrete units and/or complex self-supervised objectives, enabling faster inference, stable training, and improved translation quality. We demonstrate the efficacy of the proposed model in fr-en and de-en speech-to-speech translation on the CVSS dataset, achieving BLEU scores better or comparable to existing models.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/kumar25c_interspeech.html"
+  },
+  {
+    "paper_id": "higuchi25_interspeech",
+    "title": "End-to-End Speech Translation Guided by Robust Translation Capability of Large Language Model",
+    "authors": "Higuchi, Yosuke, Ogawa, Tetsuji, Kobayashi, Tetsunori",
+    "abstract": "End-to-End Speech Translation Guided by Robust Translation Capability of Large Language Model End-to-End Speech Translation Guided by Robust Translation Capability of Large Language Model Yosuke Higuchi, Tetsuji Ogawa, Tetsunori Kobayashi We present an end-to-end speech translation (ST) model that uses a large language model (LLM) to guide the translation process. Recent advances in LLMs have shown strong contextual understanding and robustness to noisy text, making them beneficial for mitigating automatic speech recognition (ASR) errors. Building on these strengths, we develop an LLM-driven ST model within an encoder-decoder framework, with the encoder handling an auxiliary ASR task and the decoder incorporating an LLM at its front end. Here, the encoder generates an ASR hypothesis that cues the LLM to perform machine translation. The LLM output is then fed into the decoder to yield the final translation. This two-pass design capitalizes on the LLM's robust and accurate translation capabilities, while enabling end-to-end optimization tailored to specific ST tasks. Experimental results on various ST tasks reveal significant performance gains with our LLM integration, and extensive analyses further validate our approach.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/higuchi25_interspeech.html"
+  },
+  {
+    "paper_id": "futami25_interspeech",
+    "title": "Scheduled Interleaved Speech-Text Training for Speech-to-Speech Translation with LLMs",
+    "authors": "Futami, Hayato, Tsunoo, Emiru, Kashiwagi, Yosuke, Ito, Yuki, Shahmohammadi, Hassan, Arora, Siddhant, Watanabe, Shinji",
+    "abstract": "Scheduled Interleaved Speech-Text Training for Speech-to-Speech Translation with LLMs Scheduled Interleaved Speech-Text Training for Speech-to-Speech Translation with LLMs Hayato Futami, Emiru Tsunoo, Yosuke Kashiwagi, Yuki Ito, Hassan Shahmohammadi, Siddhant Arora, Shinji Watanabe Speech-to-speech translation (S2ST) has been advanced with large language models (LLMs), which are fine-tuned on discrete speech units. In such approaches, modality adaptation from text to speech has been an issue. LLMs are trained on text-only data, which presents challenges to adapt them to speech modality with limited speech-to-speech data. To address the training difficulty, we propose scheduled interleaved speech-text training in this study. We use interleaved speech-text units instead of speech units during training, where aligned text tokens are interleaved at the word level. We gradually decrease the ratio of text as training progresses, to facilitate progressive modality adaptation from text to speech. We conduct experimental evaluations by fine-tuning LLaMA3.2-1B for S2ST on the CVSS dataset. We show that the proposed method consistently improves the translation performances, especially for languages with limited training data.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/futami25_interspeech.html"
+  },
+  {
+    "paper_id": "pei25_interspeech",
+    "title": "Optimized Real-time Speech Enhancement with Deep SSMs on Raw Audio",
+    "authors": "Pei, Yan Ru, Shrivastava, Ritik, Sidharth, Fnu",
+    "abstract": "Optimized Real-time Speech Enhancement with Deep SSMs on Raw Audio Optimized Real-time Speech Enhancement with Deep SSMs on Raw Audio Yan Ru Pei, Ritik Shrivastava, Fnu Sidharth We present aTENNuate, a simple deep state-space autoencoder configured for efficient online raw speech enhancement in an end-to-end fashion. The network's performance is primarily evaluated on raw speech denoising, with additional assessments on tasks such as super-resolution and de-quantization. We benchmark aTENNuate on the VoiceBank + DEMAND and the Microsoft DNS1 synthetic test sets. The network outperforms previous real-time denoising models in terms of PESQ score, parameter count, MACs, and latency. Even as a raw waveform processing model, the model maintains high fidelity to the clean signal with minimal audible artifacts. In addition, the model remains performant even when the noisy input is compressed down to 4000Hz and 4 bits, suggesting general speech enhancement capabilities in low-resource environments.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/pei25_interspeech.html"
+  },
+  {
+    "paper_id": "wang25i_interspeech",
+    "title": "Self-Improvement for Audio Large Language Model using Unlabeled Speech",
+    "authors": "Wang, Shaowen, Chen, Xinyuan, Xu, Yao",
+    "abstract": "Self-Improvement for Audio Large Language Model using Unlabeled Speech Self-Improvement for Audio Large Language Model using Unlabeled Speech Shaowen Wang, Xinyuan Chen, Yao Xu Recent audio LLMs have emerged rapidly, demonstrating strong generalization across various speech tasks. However, given the inherent complexity of speech signals, these models inevitably suffer from performance degradation in specific target domains. To address this, we focus on enhancing audio LLMs in target domains without any labeled data. We propose a self-improvement method called SI-SDA, leveraging the information embedded in large-model decoding to evaluate the quality of generated pseudo labels and then perform domain adaptation based on reinforcement learning optimization. Experimental results show that our method consistently and significantly improves audio LLM performance, outperforming existing baselines in WER and BLEU across multiple public datasets of automatic speech recognition (ASR), spoken question-answering (SQA), and speech-to-text translation (S2TT). Furthermore, our approach exhibits high data efficiency, underscoring its potential for real-world deployment.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/wang25i_interspeech.html"
+  },
+  {
+    "paper_id": "gao25_interspeech",
+    "title": "TSDT-Net: Ultra-Low-Complexity Two-Stage Model Combining Dual-Path-Transformer and Transform-Average-Concatenate Network for Speech Enhancement",
+    "authors": "Gao, Yi, Chen, Hangting, Zhang, Siyu, Yang, Qingshan, Chen, Jingcong",
+    "abstract": "TSDT-Net: Ultra-Low-Complexity Two-Stage Model Combining Dual-Path-Transformer and Transform-Average-Concatenate Network for Speech Enhancement TSDT-Net: Ultra-Low-Complexity Two-Stage Model Combining Dual-Path-Transformer and Transform-Average-Concatenate Network for Speech Enhancement Yi Gao, Hangting Chen, Siyu Zhang, Qingshan Yang, Jingcong Chen This paper introduces TSDT-Net, a dual-stage ultra-low-complexity architecture for speech enhancement which achieves higher denoising performance with limited parameter number and computational cost. Its first stage utilizes a simplified Dual-Path-Transformer(DPT) structure. In the second stage, the first-stage output and original noisy signal are treated as dual-channel inputs, modeled as a beamforming optimization problem. An enhanced Transform-Average-Concatenate (TAC) network processes these channels through spectral filtering and enhancement. Fast linear transformers ensure ultra-low computational overhead, while gated networks in both stages facilitate complex Ideal Ratio Mask (cIRM) construction. Residual connections between stages enable performance synergies. Evaluations on the INTERSPEECH 2020 DNS Challenge demonstrate TSDT-Net's superiority, achieving staet-of-the-art DNSMOS and PESQ scores with significant margins over single-stage models under stringent computational constraints (<700K parameters and <500M/ 200M MACs). This efficiency enables deployment across diverse embedded devices.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/gao25_interspeech.html"
+  },
+  {
+    "paper_id": "lu25_interspeech",
+    "title": "A Two-Stage Hierarchical Deep Filtering Framework for Real-Time Speech Enhancement",
+    "authors": "Lu, Shenghui, Huang, Hukai, Yao, Jinanglong, Wang, Kaidi, Hong, Qingyang, Li, Lin",
+    "abstract": "A Two-Stage Hierarchical Deep Filtering Framework for Real-Time Speech Enhancement A Two-Stage Hierarchical Deep Filtering Framework for Real-Time Speech Enhancement Shenghui Lu, Hukai Huang, Jinanglong Yao, Kaidi Wang, Qingyang Hong, Lin Li This paper proposes a model that integrates sub-band processing and deep filtering to fully exploit information from the target time-frequency (TF) bin and its surrounding TF bins for single-channel speech enhancement. The sub-band module captures surrounding frequency bin information at the input, while the deep filtering module applies filtering at the output to both the target TF bin and its surrounding TF bins. To further improve the model performance, we decouple deep filtering into temporal and frequency components and introduce a two-stage framework, reducing the complexity of filter coefficient prediction at each stage. Additionally, we propose the TAConv module to strengthen convolutional feature extraction. Experimental results demonstrate that the proposed hierarchical deep filtering network (HDF-Net) effectively utilizes surrounding TF bin information and outperforms other advanced systems while using fewer resources.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/lu25_interspeech.html"
+  },
+  {
+    "paper_id": "subramanian25_interspeech",
+    "title": "Length Aware Speech Translation for Video Dubbing",
+    "authors": "Subramanian, Aswin Shanmugam, Chadha, Harveen, Joshi, Vikas, Bansal, Shubham, Xue, Jian, Mehta, Rupeshkumar, Li, Jinyu",
+    "abstract": "Length Aware Speech Translation for Video Dubbing Length Aware Speech Translation for Video Dubbing Aswin Shanmugam Subramanian, Harveen Chadha, Vikas Joshi, Shubham Bansal, Jian Xue, Rupeshkumar Mehta, Jinyu Li In video dubbing, aligning translated audio with the source audio is a significant challenge. Our focus is on achieving this efficiently, tailored for real-time, on-device video dubbing scenarios. We developed a phoneme-based end-to-end length-sensitive speech translation (LSST) model, which generates translations of varying lengths - short, normal, and long - using predefined tags. Additionally, we introduced length-aware beam search (LABS), an efficient approach to generate translations of different lengths in a single decoding pass. This approach maintained comparable BLEU scores compared to a baseline without length awareness while significantly enhancing synchronization quality between source and target audio, achieving a mean opinion score (MOS) gain of 0.34 for Spanish and 0.65 for Korean, respectively.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/subramanian25_interspeech.html"
+  },
+  {
+    "paper_id": "moore25_interspeech",
+    "title": "From Talking and Listening Devices to Intelligent Communicative Machines",
+    "authors": "Moore, Roger",
+    "abstract": "From Talking and Listening Devices to Intelligent Communicative Machines From Talking and Listening Devices to Intelligent Communicative Machines Roger Moore Abstract Having been 'in the business' of speech technology for over 50 years, I've had the pleasure of witnessing (and being involved first-hand) in many of the astounding developments that have led to the incredible solutions we have today. Indeed, my involvement in the field of spoken language has been somewhat of a love affair, and it's been a huge honour and privilege to have been working with so many excellent researchers on \"the most sophisticated behaviour of the most complex organism in the known universe\"! Although I've always been heavily committed to the establishment of machine learning approaches to spoken language processing - including publishing one of the first papers on the application of artificial neural networks to automatic speech recognition - my approach has always been one of attempting to uncover the underlying mechanisms of 'intelligent' (speech-based) interaction, on the basis that living systems are remarkably data-efficient in their learning. This talk will both look back (rather a long way) and look forward, asking the question how did we get here and where are we going? I hope that some of my insights may inspire others to follow a similar path.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/moore25_interspeech.html"
+  },
+  {
+    "paper_id": "gallego25_interspeech",
+    "title": "Speech-to-Text Translation with Phoneme-Augmented CoT: Enhancing Cross-Lingual Transfer in Low-Resource Scenarios",
+    "authors": "GÃ¡llego, Gerard I., Pareras, Oriol, Cortada Garcia, MartÃ­, Takanori, Lucas, Hernando, Javier",
+    "abstract": "Speech-to-Text Translation with Phoneme-Augmented CoT: Enhancing Cross-Lingual Transfer in Low-Resource Scenarios Speech-to-Text Translation with Phoneme-Augmented CoT: Enhancing Cross-Lingual Transfer in Low-Resource Scenarios Gerard I. GÃ¡llego, Oriol Pareras, MartÃ­ Cortada Garcia, Lucas Takanori, Javier Hernando We propose a Speech-to-Text Translation (S2TT) approach that integrates phoneme representations into a Chain-of-Thought (CoT) framework to improve translation in low-resource and zero-resource settings. By introducing phoneme recognition as an intermediate step, we enhance cross-lingual transfer, enabling translation even for languages with no labeled speech data. Our system builds on a multilingual LLM, which we extend to process speech and phonemes. Training follows a curriculum learning strategy that progressively introduces more complex tasks. Experiments on multilingual S2TT benchmarks show that phoneme-augmented CoT improves translation quality in low-resource conditions and enables zero-resource translation, while slightly impacting high-resource performance. Despite this trade-off, our findings demonstrate that phoneme-based CoT is a promising step toward making S2TT more accessible across diverse languages.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/gallego25_interspeech.html"
+  },
+  {
+    "paper_id": "pothula25_interspeech",
+    "title": "End-to-End Speech Translation for Low-Resource Languages Using Weakly Labeled Data",
+    "authors": "Pothula, Aishwarya, Akkiraju, Bhavana, Bandarupalli, Srihari, D, Charan, Kesiraju, Santosh, Vuppala, Anil Kumar",
+    "abstract": "End-to-End Speech Translation for Low-Resource Languages Using Weakly Labeled Data End-to-End Speech Translation for Low-Resource Languages Using Weakly Labeled Data Aishwarya Pothula, Bhavana Akkiraju, Srihari Bandarupalli, Charan D, Santosh Kesiraju, Anil Kumar Vuppala The scarcity of high-quality annotated data presents a significant challenge in developing effective end-to-end speech-to-text translation (ST) systems, particularly for low-resource languages. This paper explores the hypothesis that weakly labeled data can be used to build ST models for low-resource language pairs. We constructed speech-to-text translation datasets with the help of bitext mining using state-of-the-art sentence encoders. We mined the multilingual Shrutilipi corpus to build Shrutilipi-anuvaad, a dataset comprising ST data for language pairs Bengali-Hindi, Malayalam-Hindi, Odia-Hindi, and Telugu-Hindi. We created multiple versions of training data with varying degrees of quality and quantity to investigate the effect of quality versus quantity of weakly labeled data on ST model performance. Results demonstrate that ST systems can be built using weakly labeled data, with performance comparable to massive multi-modal multilingual baselines such as SONAR and SeamlessM4T.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/pothula25_interspeech.html"
+  },
+  {
+    "paper_id": "ducceschi25_interspeech",
+    "title": "Speech transcription from South Tyrolean Dialect to Standard German with Whisper",
+    "authors": "Ducceschi, Luca, Franzini, Greta H.",
+    "abstract": "Speech transcription from South Tyrolean Dialect to Standard German with Whisper Speech transcription from South Tyrolean Dialect to Standard German with Whisper Luca Ducceschi, Greta H. Franzini This study presents the first fine-tuned Whisper model for the automatic translation of South Tyrolean dialectal speech into Standard German text. To address an unmet need for subtitling and translation, we introduce a small corpus of manually annotated and synthetic speech data compiled for this task. Through fine-tuning and hyperparameter optimisation, our model achieves a BLEU score of 86.18 significantly outperforming baseline error rates. Our findings highlight Whisper's effectiveness in handling dialectal speech, contributing to low-resource language research. The model is already being used in a heritage collaboration for large-scale translation of audiovisual archival material and is also being considered for application in news broadcasting and tourism promotion. Future directions include expanding the training data and extending hyperparameter optimisation to improve the model's performance and generalisation across South Tyrolean dialectal variations.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/ducceschi25_interspeech.html"
+  },
+  {
+    "paper_id": "pu25_interspeech",
+    "title": "Empowering Large Language Models for End-to-End Speech Translation Leveraging Synthetic Data",
+    "authors": "Pu, Yu, Liu, Xiaoqian, Zhang, Guangyu, Yan, Zheng, Zhang, Wei-Qiang, Chen, Xie",
+    "abstract": "Empowering Large Language Models for End-to-End Speech Translation Leveraging Synthetic Data Empowering Large Language Models for End-to-End Speech Translation Leveraging Synthetic Data Yu Pu, Xiaoqian Liu, Guangyu Zhang, Zheng Yan, Wei-Qiang Zhang, Xie Chen Speech-to-speech translation (S2ST) is a key technology for seamless cross-lingual communication. Traditional cascaded systems, which involve speech recognition, text translation, and speech synthesis, are prone to error propagation and latency. In this work, we present SLAM-TR, an end-to-end speech translation model which directly map input speech to output speech, eliminating the need for intermediate text representations. By fine-tuning from the large language model Qwen2-0.5B, SLAM-TR achieves superior performance over the cascaded baseline and state-of-the-art open-source models with minimal training time. Additionally, SLAM-TR demonstrates strong generalization, achieving an ASR-BLEU score of 8.20 on the FLEURS benchmark, outperforming both cascaded and open-source systems. In addition, addressing the challenge of limited natural speech translation data, we propose SynStard-1000, a 1,000-hour synthetic speech translation dataset.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/pu25_interspeech.html"
+  },
+  {
+    "paper_id": "ma25c_interspeech",
+    "title": "Real-Time Audio-Visual Speech Enhancement Using Pre-trained Visual Representations",
+    "authors": "Ma, Teng, Yin, Sile, Yang, Li-Chia, Zhang, Shuo",
+    "abstract": "Real-Time Audio-Visual Speech Enhancement Using Pre-trained Visual Representations Real-Time Audio-Visual Speech Enhancement Using Pre-trained Visual Representations Teng Ma, Sile Yin, Li-Chia Yang, Shuo Zhang Speech enhancement in audio-only settings remains challenging, particularly in the presence of interfering speakers. This paper presents a simple yet effective real-time audio-visual speech enhancement (AVSE) system, RAVEN, which isolates and enhances the on-screen target speaker while suppressing interfering speakers and background noise. We investigate how visual embeddings learned from audio-visual speech recognition (AVSR) and active speaker detection (ASD) contribute to AVSE across different SNR conditions and numbers of interfering speakers. Our results show concatenating embeddings from AVSR and ASD models provides the greatest improvement in low-SNR, multi-speaker environments, while AVSR embeddings alone perform best in noise-only scenarios. In addition, we develop a real-time streaming system that operates on a computer CPU and we provide a video demonstration and code repository. To our knowledge, this is the first open-source implementation of a real-time AVSE system.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/ma25c_interspeech.html"
+  },
+  {
+    "paper_id": "ou25_interspeech",
+    "title": "CMSP-ST: Cross-modal Mixup with Speech Purification for End-to-End Speech Translation",
+    "authors": "Ou, Jiale, Zan, Hongying",
+    "abstract": "CMSP-ST: Cross-modal Mixup with Speech Purification for End-to-End Speech Translation CMSP-ST: Cross-modal Mixup with Speech Purification for End-to-End Speech Translation Jiale Ou, Hongying Zan End-to-end speech translation (E2E ST) aims to directly convert speech in a source language into text in a target language, and its performance is constrained by the inherent modality gap. Existing methods attempt to align speech and text representations to perform cross-modal mixup at the token level, which overlooks the impact of redundant speech information. In this paper, we propose cross-modal mixup with speech purification for speech translation (CMSP-ST) to address this issue. Specifically, we remove the non-content features from speech through orthogonal projection and extract the purified speech features for cross-modal mixup. Additionally, we employ adversarial training under the Soft Alignment (S-Align) to relax the alignment granularity and improve robustness. Experimental results on the MuST-C En-De, CoVoST-2 Fr-En, and CoVoST-2 De-En benchmarks demonstrate that CMSP-ST effectively improves the speech translation performance of existing cross-modal mixup methods.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/ou25_interspeech.html"
+  },
+  {
+    "paper_id": "b25_interspeech",
+    "title": "Structured Codebook Based Hierarchical Framework for DNN for Computationally Efficient Speech Enhancement",
+    "authors": "B, Chidambar, Naidu, Hanumanth Rao",
+    "abstract": "Structured Codebook Based Hierarchical Framework for DNN for Computationally Efficient Speech Enhancement Structured Codebook Based Hierarchical Framework for DNN for Computationally Efficient Speech Enhancement Chidambar B, Hanumanth Rao Naidu Deep Neural Networks (DNN) based single-channel speech enhancement techniques have surpassed traditional techniques in handling non-stationary noise, however, they are computationally demanding. In this work, we introduce a novel Hierarchical Framework for DNNs (HF-DNN) for speech enhancement that replaces a single complex and computationally expensive DNN model with multiple simpler and less complex DNNs that are hierarchically connected. This is achieved by using structured codebooks of speech parameters, like log power spectra, that are generated by exploiting hierarchical relation between the speech training data. The proposed HF-DNN reduces computational complexity significantly compared to a large DNN while maintaining speech enhancement performance. Importantly, such a framework can be extended to other speech processing tasks, such as speech recognition, speaker verification, etc., where parametric models of speech data are utilized.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/b25_interspeech.html"
+  },
+  {
+    "paper_id": "zhou25b_interspeech",
+    "title": "Evaluation of Three Automatic Alignment Tools for the Processing of Non-native French",
+    "authors": "Zhou, Qian, Hutin, Mathilde",
+    "abstract": "Evaluation of Three Automatic Alignment Tools for the Processing of Non-native French Evaluation of Three Automatic Alignment Tools for the Processing of Non-native French Qian Zhou, Mathilde Hutin The production of non-native speech is known to display \"cross-language phonetic interference\", which makes such speech uneasy to align and label automatically. Automatic phonetic alignment refers to an automated process whereby software synchronizes speech with its transcription, usually at the phone and word levels. This method has proven useful and reliable for native speech, yet this reliability usually does not extend to non-native speech. This paper proposes to test three major automatic aligners (WebMAUS, MFA and SPPAS) on non-native French uttered by two native speakers of Chinese by comparing them with two manual segmentations. This paper's goal is to offer non-computer linguists a preliminary investigation on which to rely when choosing a tool for their studies in non-native phonetics or language didactics. Results show that the best performing tool for labeling is SPPAS while the best performing tool for both word- and phone-segmentation overall is WebMAUS and MFA the worst.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/zhou25b_interspeech.html"
+  },
+  {
+    "paper_id": "wu25l_interspeech",
+    "title": "CrossPhon: An Auto Phone Mapping Tool to Streamline Cross-language Modeling for Phone Alignment of Low-resource Languages",
+    "authors": "Wu, Hongchen, Gu, Yixin",
+    "abstract": "CrossPhon: An Auto Phone Mapping Tool to Streamline Cross-language Modeling for Phone Alignment of Low-resource Languages CrossPhon: An Auto Phone Mapping Tool to Streamline Cross-language Modeling for Phone Alignment of Low-resource Languages Hongchen Wu, Yixin Gu Phone alignment matches spoken sounds with text, streamlining speech dataset creation and analysis. However, most trained aligners focus on Indo-European languages, leaving under-resourced languages unsupported. Developing new aligners for these languages requires expertise and large datasets, which are often scarce. Cross-language phone alignment offers a solution using aligners trained in one language to align speech in another, but it traditionally relies on expert-crafted phone mappings. Our tool, CrossPhon, automates this process, making cross-language phone alignment more efficient. In tests on 14 languages from 7 families, CrossPhon achieved agreement rates of 78.95% to 97.77% compared to human expert mappings and delivered competitive performance in cross-language phone alignment. CrossPhon provides an efficient, reliable solution for generating cross-language phone alignment in under-resourced languages, helping bridge the digital divide and efficiently study these languages.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/wu25l_interspeech.html"
+  },
+  {
+    "paper_id": "magoshi25_interspeech",
+    "title": "Multi-lingual and Zero-Shot Speech Recognition by Incorporating Classification of Language-Independent Articulatory Features",
+    "authors": "Magoshi, Ryo, Sakai, Shinsuke, Lee, Jaeyoung, Kawahara, Tatsuya",
+    "abstract": "Multi-lingual and Zero-Shot Speech Recognition by Incorporating Classification of Language-Independent Articulatory Features Multi-lingual and Zero-Shot Speech Recognition by Incorporating Classification of Language-Independent Articulatory Features Ryo Magoshi, Shinsuke Sakai, Jaeyoung Lee, Tatsuya Kawahara We address multi-lingual speech recognition including unknown or zero-shot languages based on the International Phonetic Alphabet (IPA) and articulatory features. Articulatory features are language-independent representations for IPA based on phonetic knowledge. In the previous studies, however, they were mostly limited to two dimensions of place of articulation and manner of articulation. Moreover, the classification of articulatory features were not well aligned with phone recognition. In this study, we adopt a comprehensive 24-dimensional vector representation, and propose a training method in which IPA tokens and their corresponding articulatory features are simultaneously predicted based on CTC alignment. Experiments are conducted by fine-tuning the wav2vec 2.0 XLS-R model over 22 languages, and the results demonstrated significant improvements on average as well as in zero-shot language settings.",
+    "year": "2025",
+    "url": "https://www.isca-archive.org/interspeech_2025/magoshi25_interspeech.html"
+  }
+]
