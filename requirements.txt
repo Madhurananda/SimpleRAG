@@ -6,6 +6,9 @@ langchain-community
 langchain-groq
 langchain-openai
 langchain-text-splitters
+langgraph
+langgraph-checkpoint-sqlite
+langgraph-store-qdrant
 faiss-cpu
 chromadb
 beautifulsoup4
