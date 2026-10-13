@@ -1,300 +1,12 @@
-# """Pipeline for the Interspeech RAG assistant."""
-
-
-# import concurrent.futures
-
-# from src import config
-# from src.agent import create_interspeech_agent  # <-- FIXED: Use Interspeech agent
-# from interspeech.loader import load_interspeech_abstracts
-# from interspeech.tools import create_interspeech_search_tool
-# from src.llm import get_llm
-# from src.splitter import split_into_chunks
-# from src.vector_store import (
-#     build_vector_store,
-#     get_retriever,
-#     load_vector_store,
-#     save_vector_store,
-#     vector_store_exists,
-# )
-
-
-# def build_interspeech_assistant(
-#     years: list = None,
-#     filter_dementia: bool = True,
-#     max_papers: int = None,
-#     rebuild: bool = False
-# ):
-#     """
-#     Build the Interspeech RAG agent.
-
-#     Args:
-#         years: List of years to include
-#         filter_dementia: If True, only include dementia papers
-#         max_papers: Max papers per year (for testing)
-#         rebuild: If True, rebuild the vector store even if it exists
-
-#     Returns:
-#         A LangChain agent ready to answer questions
-#     """
-#     config.check_api_keys()
-
-#     if years is None:
-#         years = config.INTERSPEECH_YEARS
-
-#     # <-- FIXED: Use the correct path from config
-#     vector_store_path = config.INTERSPEECH_VECTOR_STORE_PATH
-
-#     # Check if vector store exists
-#     if not rebuild and vector_store_exists(path=vector_store_path):
-#         print(f"✅ Found saved vector store at {vector_store_path}")
-#         vector_store = load_vector_store(path=vector_store_path)
-#     else:
-#         print("🔄 Building vector store from scratch...")
-#         documents = load_interspeech_abstracts(
-#             years=years,
-#             filter_dementia=filter_dementia,
-#             max_papers=max_papers
-#         )
-
-#         if not documents:
-#             raise ValueError("No documents loaded! Check your scraper or years.")
-
-#         chunks = split_into_chunks(documents)
-#         print(f"✅ Split into {len(chunks)} chunks")
-
-#         vector_store = build_vector_store(chunks)
-#         save_vector_store(vector_store, path=vector_store_path)
-#         print(f"✅ Vector store saved to {vector_store_path}")
-
-#     retriever = get_retriever(vector_store, k=config.INTERSPEECH_TOP_K)
-#     search_tool = create_interspeech_search_tool(retriever)
-
-#     llm = get_llm()
-    
-#     # <-- FIXED: Use create_interspeech_agent, not create_hr_agent
-#     agent = create_interspeech_agent(llm, [search_tool])
-
-#     return agent
-
-
-# # def ask(agent, question: str) -> str:
-# #     """Ask the agent a question and return its final answer."""
-# #     response = agent.invoke({"messages": [{"role": "user", "content": question}]})
-# #     return response["messages"][-1].content
-
-# def ask(agent, question: str, show_tokens: bool = False) -> str:
-#     """Ask the agent a question and return its final answer.
-    
-#     Args:
-#         agent: The LangChain agent.
-#         question: The user's question.
-#         show_tokens: If True, print input/output token counts.
-    
-#     Returns:
-#         The agent's answer as plain text.
-#     """
-#     response = agent.invoke({"messages": [{"role": "user", "content": question}]})
-    
-#     # Extract token usage if available
-#     if show_tokens and "messages" in response:
-#         # The token usage is usually in the last message's response_metadata
-#         last_msg = response["messages"][-1]
-#         if hasattr(last_msg, 'response_metadata'):
-#             usage = last_msg.response_metadata.get('token_usage', {})
-#             if usage:
-#                 print(f"\n📊 Token Usage:")
-#                 print(f"   Input tokens:  {usage.get('prompt_tokens', 'N/A')}")
-#                 print(f"   Output tokens: {usage.get('completion_tokens', 'N/A')}")
-#                 print(f"   Total tokens:  {usage.get('total_tokens', 'N/A')}")
-    
-#     return response["messages"][-1].content
-
-
-
-# """Pipeline for the Interspeech RAG assistant."""
-
-# import concurrent.futures
-# import os
-
-# # LangChain imports
-# from src import config
-# from src.agent import create_interspeech_agent
-# from interspeech.loader import load_interspeech_abstracts
-# from interspeech.tools import create_interspeech_search_tool
-# from src.llm import get_llm
-# from src.splitter import split_into_chunks
-# from src.vector_store import (
-#     build_vector_store,
-#     get_retriever,
-#     load_vector_store,
-#     save_vector_store,
-#     vector_store_exists,
-# )
-
-# # Observability imports
-# from langfuse.langchain import CallbackHandler as LangFuseCallbackHandler
-# # LangSmith is automatically activated if LANGSMITH_TRACING=true is set.
-# # We also import the client to optionally set metadata.
-# from langsmith import Client as LangSmithClient
-
-
-# # Global callback handler for LangFuse
-# langfuse_handler = None
-
-# def get_langfuse_handler():
-#     """Lazy initialize LangFuse handler only if keys are present."""
-#     global langfuse_handler
-#     if langfuse_handler is None:
-#         # Only create if environment variables are set
-#         if os.getenv("LANGFUSE_PUBLIC_KEY") and os.getenv("LANGFUSE_SECRET_KEY"):
-#             langfuse_handler = LangFuseCallbackHandler()
-#         else:
-#             langfuse_handler = None
-#     return langfuse_handler
-
-
-# def build_interspeech_assistant(
-#     years: list = None,
-#     filter_dementia: bool = True,
-#     max_papers: int = None,
-#     rebuild: bool = False
-# ):
-#     """
-#     Build the Interspeech RAG agent.
-
-#     Args:
-#         years: List of years to include
-#         filter_dementia: If True, only include dementia papers
-#         max_papers: Max papers per year (for testing)
-#         rebuild: If True, rebuild the vector store even if it exists
-
-#     Returns:
-#         A LangChain agent ready to answer questions
-#     """
-#     config.check_api_keys()
-
-#     if years is None:
-#         years = config.INTERSPEECH_YEARS
-
-#     vector_store_path = config.INTERSPEECH_VECTOR_STORE_PATH
-
-#     # Check if vector store exists
-#     if not rebuild and vector_store_exists(path=vector_store_path):
-#         print(f"✅ Found saved vector store at {vector_store_path}")
-#         vector_store = load_vector_store(path=vector_store_path)
-#     else:
-#         print("🔄 Building vector store from scratch...")
-#         documents = load_interspeech_abstracts(
-#             years=years,
-#             filter_dementia=filter_dementia,
-#             max_papers=max_papers
-#         )
-
-#         if not documents:
-#             raise ValueError("No documents loaded! Check your scraper or years.")
-
-#         chunks = split_into_chunks(documents)
-#         print(f"✅ Split into {len(chunks)} chunks")
-
-#         vector_store = build_vector_store(chunks)
-#         save_vector_store(vector_store, path=vector_store_path)
-#         print(f"✅ Vector store saved to {vector_store_path}")
-
-#     retriever = get_retriever(vector_store, k=config.INTERSPEECH_TOP_K)
-#     search_tool = create_interspeech_search_tool(retriever)
-
-#     llm = get_llm()
-#     agent = create_interspeech_agent(llm, [search_tool])
-
-#     return agent
-
-
-# def ask(
-#     agent,
-#     question: str,
-#     show_tokens: bool = False,
-#     timeout_seconds: int = 10
-# ) -> str:
-#     """
-#     Ask the agent a question with timeout and observability.
-
-#     Args:
-#         agent: The LangChain agent.
-#         question: The user's question.
-#         show_tokens: If True, print input/output token counts.
-#         timeout_seconds: Max time to wait for a response (default: 10).
-
-#     Returns:
-#         The agent's answer as plain text, or a timeout message.
-#     """
-#     # Prepare callbacks: LangFuse handler (if available)
-#     callbacks = []
-#     lf_handler = get_langfuse_handler()
-#     if lf_handler:
-#         callbacks.append(lf_handler)
-#     # LangSmith is global, no need to pass.
-
-#     def _invoke():
-#         return agent.invoke(
-#             {"messages": [{"role": "user", "content": question}]},
-#             config={"callbacks": callbacks} if callbacks else {}
-#         )
-
-#     # Execute with timeout
-#     with concurrent.futures.ThreadPoolExecutor() as executor:
-#         future = executor.submit(_invoke)
-#         try:
-#             response = future.result(timeout=timeout_seconds)
-#         except concurrent.futures.TimeoutError:
-#             return "⏳ It's taking too long to answer. Please try again with a more specific question."
-#         except Exception as e:
-#             return f"⚠️ Error: {e}"
-
-#     # Extract token usage if requested
-#     if show_tokens:
-#         last_msg = response["messages"][-1]
-#         if hasattr(last_msg, 'response_metadata'):
-#             usage = last_msg.response_metadata.get('token_usage', {})
-#             if usage:
-#                 print(f"\n📊 Token Usage:")
-#                 print(f"   Input tokens:  {usage.get('prompt_tokens', 'N/A')}")
-#                 print(f"   Output tokens: {usage.get('completion_tokens', 'N/A')}")
-#                 print(f"   Total tokens:  {usage.get('total_tokens', 'N/A')}")
-
-#     return response["messages"][-1].content
-
-
-
-
-
-
-
-"""Wires all the components together into one ready-to-use agent.
-
-This is the single entry point that main.py (CLI) and app.py (Streamlit)
-both call. Each step is handled by its own small module.
-
-New in this version:
-- Centralized logging via logger.py
-- LangSmith tracing status logged at startup via tracing.py
-- Input/output guardrails via guardrails.py
-- Optional Portkey gateway routing via gateway.py
-- 10-second timeout for agent calls
-- Optional token usage printing
-"""
+"""Wires the Interspeech components into one ready-to-use agent with memory."""
 
 import os
-import concurrent.futures
 
-from core import config
-from assistants.hr.agent import create_hr_agent
-from assistants.hr.loader import load_document
+from core import config as core_config
 from core.logger import get_logger
-from core.tracing import check_langsmith_tracing
-from assistants.hr.guardrails import check_input, check_output, REFUSAL_MESSAGE
-from core.gateway import get_gateway_llm   # <-- Portkey-routed LLM
+from core.gateway import get_gateway_llm
+from core.llm import get_llm
 from core.splitter import split_into_chunks
-from assistants.hr.tools import create_search_tool
 from core.vector_store import (
     build_vector_store,
     get_retriever,
@@ -302,158 +14,344 @@ from core.vector_store import (
     save_vector_store,
     vector_store_exists,
 )
+from core.long_term_memory import get_long_term_store
 
-# Observability imports (LangFuse)
-from langfuse.langchain import CallbackHandler as LangFuseCallbackHandler
+from assistants.interspeech import config as is_config
+from assistants.interspeech.loader import load_interspeech_abstracts
+from assistants.interspeech.tools import create_interspeech_search_tool, create_memory_tools
+from assistants.interspeech.agent import create_interspeech_agent
+from assistants.interspeech.guardrails import check_input, check_output, REFUSAL_MESSAGE
 
+try:
+    from langfuse.langchain import CallbackHandler as LangFuseCallbackHandler
+except ImportError:
+    LangFuseCallbackHandler = None
+
+try:
+    from langgraph.checkpoint.postgres import PostgresSaver
+    from psycopg_pool import ConnectionPool
+    from psycopg.rows import dict_row
+    _POSTGRES_AVAILABLE = True
+except ImportError:
+    PostgresSaver = None
+    ConnectionPool = None
+    dict_row = None
+    _POSTGRES_AVAILABLE = False
 
 logger = get_logger(__name__)
 
-# Log LangSmith tracing status once at import time
-check_langsmith_tracing()
+_langfuse_handler = None
+_checkpointer_instance = None
+_checkpointer_pool = None
+
+MAX_HISTORY_TOKENS = 3000
 
 
-# ============================================================
-# LangFuse callback handler (lazy init)
-# ============================================================
-langfuse_handler = None
-
-
-def get_langfuse_handler():
-    """Lazy initialize LangFuse handler only if keys are present."""
-    global langfuse_handler
-    if langfuse_handler is None:
-        if os.getenv("LANGFUSE_PUBLIC_KEY") and os.getenv("LANGFUSE_SECRET_KEY"):
-            logger.info("LangFuse tracing ENABLED")
-            langfuse_handler = LangFuseCallbackHandler()
+# ---------------------------------------------------------------------------
+# LangFuse (lazy)
+# ---------------------------------------------------------------------------
+def _get_langfuse_handler():
+    global _langfuse_handler
+    if _langfuse_handler is None:
+        if (LangFuseCallbackHandler
+                and os.getenv("LANGFUSE_PUBLIC_KEY")
+                and os.getenv("LANGFUSE_SECRET_KEY")):
+            _langfuse_handler = LangFuseCallbackHandler()
         else:
-            logger.info("LangFuse tracing is OFF (no keys found in .env)")
-            langfuse_handler = None
-    return langfuse_handler
+            _langfuse_handler = False
+    return _langfuse_handler or None
 
 
-# ============================================================
-# Vector store builder
-# ============================================================
-def build_vector_store_for_document(file_path: str = config.DATA_FILE_PATH):
-    """Load + split + embed the document, reusing a saved index if we have one."""
-    if vector_store_exists():
-        logger.info("Found saved vector store on disk, loading it")
-        return load_vector_store()
+# ---------------------------------------------------------------------------
+# Checkpointer (Postgres, shared with HR — thread IDs are unique per assistant)
+# ---------------------------------------------------------------------------
+def _build_checkpointer(database_url: str | None = None):
+    """PostgreSQL checkpointer with in-memory fallback for local dev."""
+    global _checkpointer_instance, _checkpointer_pool
+    if _checkpointer_instance is not None:
+        return _checkpointer_instance
 
-    logger.info("No saved vector store found, building from scratch")
-    documents = load_document(file_path)
+    db_url = database_url or os.getenv("DATABASE_URL")
+
+    if not db_url:
+        logger.warning("DATABASE_URL not set — using in-memory checkpointer")
+        from langgraph.checkpoint.memory import MemorySaver
+        _checkpointer_instance = MemorySaver()
+        return _checkpointer_instance
+
+    if not _POSTGRES_AVAILABLE:
+        logger.warning("Postgres checkpointer libs not installed — using in-memory")
+        from langgraph.checkpoint.memory import MemorySaver
+        _checkpointer_instance = MemorySaver()
+        return _checkpointer_instance
+
+    pool = ConnectionPool(
+        conninfo=db_url,
+        min_size=1,
+        max_size=5,
+        max_idle=300.0,
+        kwargs={"autocommit": True, "row_factory": dict_row},
+        open=True,
+    )
+    _checkpointer_pool = pool
+    checkpointer = PostgresSaver(pool)
+    checkpointer.setup()
+    logger.info("Short-term memory: PostgreSQL (pooled)")
+    _checkpointer_instance = checkpointer
+    return checkpointer
+
+
+def close_checkpointer() -> None:
+    """Close the pool on shutdown."""
+    global _checkpointer_instance, _checkpointer_pool
+    if _checkpointer_pool is not None:
+        try:
+            _checkpointer_pool.close()
+        except Exception as e:
+            logger.warning("Error closing pool: %s", e)
+        _checkpointer_pool = None
+        _checkpointer_instance = None
+
+
+# ---------------------------------------------------------------------------
+# Token helpers
+# ---------------------------------------------------------------------------
+def _empty_usage() -> dict:
+    return {"prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+
+
+def _sum_agent_tokens(messages) -> dict:
+    prompt = completion = 0
+    for msg in messages:
+        u = getattr(msg, "response_metadata", {}).get("token_usage", {}) or {}
+        prompt += u.get("prompt_tokens", 0)
+        completion += u.get("completion_tokens", 0)
+    return {"prompt_tokens": prompt, "completion_tokens": completion,
+            "total_tokens": prompt + completion}
+
+
+def _friendly_error(e: Exception) -> str:
+    s = str(e).lower()
+    name = type(e).__name__
+    if ("402" in s or "payment required" in s or "insufficient" in s
+            or "quota" in s or "out of credits" in s or "billing" in s):
+        return ("🚫 API quota exceeded or billing issue with the model provider. "
+                "Check your Groq / Portkey / Jina account balance.")
+    if "rate limit" in s or "429" in s or "too many requests" in s:
+        return "⏳ Rate limit reached. Please wait a moment and try again."
+    if ("401" in s or "403" in s or "unauthorized" in s or "forbidden" in s
+            or "invalid api key" in s or "authentication" in s):
+        return "🔑 Authentication failed. Check your API keys in .env."
+    if "timeout" in s or "timed out" in s or "readtimeout" in s:
+        return "⏳ Request timed out. Try again or increase --timeout."
+    if "connection" in s or "network" in s or "dns" in s:
+        return "🌐 Network error reaching the model provider."
+    return f"⚠️ Error: {name}: {e}"
+
+
+# ---------------------------------------------------------------------------
+# Vector store
+# ---------------------------------------------------------------------------
+def build_vector_store_for_document(file_path=None, on_progress=None):
+    file_path = file_path or is_config.DATA_FILE_PATH
+
+    if on_progress:
+        on_progress("Checking vector store status...")
+    if vector_store_exists(is_config):
+        logger.info("Found saved vector store, loading...")
+        return load_vector_store(is_config)
+
+    logger.info("Building vector store from scratch...")
+    if on_progress:
+        on_progress("Loading + scraping abstracts...")
+    documents = load_interspeech_abstracts(
+        years=is_config.INTERSPEECH_YEARS,
+        filter_dementia=is_config.FILTER_DEMENTIA,
+        max_papers=is_config.MAX_PAPERS,
+    )
     chunks = split_into_chunks(documents)
-    logger.info("Loaded '%s' and split into %d chunks", file_path, len(chunks))
+    logger.info("Loaded %d chunks", len(chunks))
 
-    vector_store = build_vector_store(chunks)
-    save_vector_store(vector_store)
-    logger.info("Vector store built and saved to disk")
-    return vector_store
+    if on_progress:
+        on_progress(f"Embedding {len(chunks)} chunks...")
+    vs = build_vector_store(chunks, is_config)
+    save_vector_store(vs, is_config)
+    return vs
 
 
-# ============================================================
-# Build the full HR assistant
-# ============================================================
-def build_hr_assistant(file_path: str = config.DATA_FILE_PATH):
-    """Build the full RAG agent, ready to answer questions."""
-    config.check_api_keys()
+# ---------------------------------------------------------------------------
+# Build
+# ---------------------------------------------------------------------------
+def build_interspeech_assistant(file_path=None, use_gateway=True, on_progress=None,
+                                user_id: str = "default_user",
+                                rebuild: bool = False):
+    """Build the full Interspeech agent with memory."""
+    if on_progress:
+        on_progress("Checking API keys...")
+    core_config.check_api_keys(
+        require_qdrant=(core_config.VECTOR_STORE_TYPE.lower() == "qdrant")
+    )
 
-    vector_store = build_vector_store_for_document(file_path)
-    retriever = get_retriever(vector_store, k=config.HR_TOP_K)
-    search_tool = create_search_tool(retriever)
+    if rebuild:
+        # Force a fresh vector store (useful after changing scraper config)
+        if on_progress:
+            on_progress("Rebuild requested — building vector store from scratch...")
+        from core.vector_store import save_vector_store as _save
+        documents = load_interspeech_abstracts(
+            years=is_config.INTERSPEECH_YEARS,
+            filter_dementia=is_config.FILTER_DEMENTIA,
+            max_papers=is_config.MAX_PAPERS,
+        )
+        chunks = split_into_chunks(documents)
+        vs = build_vector_store(chunks, is_config)
+        _save(vs, is_config)
+    else:
+        vs = build_vector_store_for_document(file_path, on_progress=on_progress)
 
-    # Route the LLM through Portkey (gateway)
-    llm = get_gateway_llm()
+    if on_progress:
+        on_progress("Setting up retrieval tool...")
+    retriever = get_retriever(vs, k=is_config.INTERSPEECH_TOP_K)
+    search_tool = create_interspeech_search_tool(retriever)
 
-    agent = create_hr_agent(llm, [search_tool])
-    logger.info("HR assistant built and ready")
+    if on_progress:
+        on_progress("Setting up memory tools...")
+    memory_tools = create_memory_tools(user_id=user_id)
 
+    if use_gateway and core_config.PORTKEY_API_KEY:
+        logger.info("Using Portkey gateway")
+        if on_progress: on_progress("Connecting LLM via Portkey...")
+        llm = get_gateway_llm()
+    else:
+        logger.info("Using direct Groq")
+        if on_progress: on_progress("Connecting LLM via Groq...")
+        llm = get_llm()
+
+    if on_progress:
+        on_progress("Wiring short-term + long-term memory...")
+    checkpointer = _build_checkpointer()
+    store = get_long_term_store()
+
+    if on_progress:
+        on_progress("Creating agent...")
+    agent = create_interspeech_agent(
+        llm,
+        [search_tool] + memory_tools,
+        checkpointer=checkpointer,
+        store=store,
+    )
     return agent
 
 
-# ============================================================
-# Ask the agent (with guardrails + timeout + observability)
-# ============================================================
-def ask(
-    agent,
-    question: str,
-    show_tokens: bool = False,
-    timeout_seconds: int = 10
-) -> str:
-    """
-    Ask the agent a question with guardrails, timeout, and observability.
+# ---------------------------------------------------------------------------
+# Ask
+# ---------------------------------------------------------------------------
+def ask(agent, question, thread_id: str = "interspeech-default",
+        show_tokens=False, timeout_seconds=10,
+        enable_guardrails=True, on_progress=None, usage_out=None):
+    """Ask the Interspeech agent within a conversation thread."""
+    logger.info("User question: %s (thread=%s)", question, thread_id)
 
-    Args:
-        agent: The LangChain agent.
-        question: The user's question.
-        show_tokens: If True, print input/output token counts.
-        timeout_seconds: Max time to wait for a response (default: 10).
+    in_guard_usage  = _empty_usage()
+    agent_usage     = _empty_usage()
+    out_guard_usage = _empty_usage()
+    blocked = None
 
-    Returns:
-        The agent's answer as plain text, or a refusal / timeout message.
-    """
-    logger.info("User question: %s", question)
+    def _finalize(final_answer: str) -> None:
+        if usage_out is None:
+            return
+        usage_out.update({
+            "question": question,
+            "thread_id": thread_id,
+            "input_guard": in_guard_usage,
+            "agent": agent_usage,
+            "output_guard": out_guard_usage,
+            "total_tokens": (
+                in_guard_usage["total_tokens"]
+                + agent_usage["total_tokens"]
+                + out_guard_usage["total_tokens"]
+            ),
+            "blocked": blocked,
+            "answer": final_answer,
+        })
 
-    # ------------------------------------------------------------
-    # 1) INPUT GUARD — check the question BEFORE the agent sees it
-    # ------------------------------------------------------------
-    is_safe, reason = check_input(question)
-    if not is_safe:
-        logger.warning("Input guard BLOCKED question: %s | reason: %s", question, reason)
-        return REFUSAL_MESSAGE
+    # 1) input guard
+    if enable_guardrails:
+        if on_progress: on_progress("Checking input guardrail...")
+        try:
+            is_safe, reason, in_guard_usage = check_input(question)
+        except Exception as e:
+            logger.exception("Input guardrail failed: %s", e)
+            blocked = "input_guard_error"
+            msg = _friendly_error(e)
+            if on_progress: on_progress(msg)
+            _finalize(msg)
+            return msg
+        if not is_safe:
+            logger.warning("Input guard BLOCKED: %s", reason)
+            if on_progress: on_progress(f"🚫 {reason}")
+            blocked = "input_guard"
+            _finalize(REFUSAL_MESSAGE)
+            return REFUSAL_MESSAGE
+        if on_progress: on_progress("✅ Input guard passed")
 
-    # ------------------------------------------------------------
-    # 2) PREPARE CALLBACKS — LangFuse handler if available
-    # ------------------------------------------------------------
+    # 2) callbacks
     callbacks = []
-    lf_handler = get_langfuse_handler()
-    if lf_handler:
-        callbacks.append(lf_handler)
-    # LangSmith is global via env vars, no callback needed.
+    lf = _get_langfuse_handler()
+    if lf:
+        callbacks.append(lf)
 
-    # ------------------------------------------------------------
-    # 3) INVOKE THE AGENT (with timeout)
-    # ------------------------------------------------------------
+    run_config = {"configurable": {"thread_id": thread_id}}
+    if callbacks:
+        run_config["callbacks"] = callbacks
+
     def _invoke():
         return agent.invoke(
             {"messages": [{"role": "user", "content": question}]},
-            config={"callbacks": callbacks} if callbacks else {}
+            config=run_config,
         )
 
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        future = executor.submit(_invoke)
-        try:
-            response = future.result(timeout=timeout_seconds)
-        except concurrent.futures.TimeoutError:
-            logger.warning("Agent call timed out after %d seconds", timeout_seconds)
-            return "⏳ It's taking too long to answer. Please try again with a more specific question."
-        except Exception as e:
-            logger.exception("Agent call failed: %s", e)
-            return f"⚠️ Error: {e}"
+    if on_progress:
+        on_progress(f"Querying agent (thread={thread_id})...")
 
+    try:
+        response = _invoke()
+    except Exception as e:
+        logger.exception("Agent call failed: %s", e)
+        blocked = "agent_error"
+        msg = _friendly_error(e)
+        if on_progress: on_progress(msg)
+        _finalize(msg)
+        return msg
+
+    agent_usage = _sum_agent_tokens(response["messages"])
     answer = response["messages"][-1].content
 
-    # ------------------------------------------------------------
-    # 4) OUTPUT GUARD — check the answer BEFORE showing it to user
-    # ------------------------------------------------------------
-    is_safe, reason = check_output(answer)
-    if not is_safe:
-        logger.warning("Output guard BLOCKED answer: %s | reason: %s", answer, reason)
-        return REFUSAL_MESSAGE
+    # 3) output guard
+    if enable_guardrails:
+        if on_progress: on_progress("Checking output guardrail...")
+        try:
+            is_safe, reason, out_guard_usage = check_output(answer)
+        except Exception as e:
+            logger.exception("Output guardrail failed: %s", e)
+            blocked = "output_guard_error"
+            msg = _friendly_error(e)
+            if on_progress: on_progress(msg)
+            _finalize(msg)
+            return msg
+        if not is_safe:
+            logger.warning("Output guard BLOCKED: %s", reason)
+            if on_progress: on_progress(f"🚫 {reason}")
+            blocked = "output_guard"
+            _finalize(REFUSAL_MESSAGE)
+            return REFUSAL_MESSAGE
+        if on_progress: on_progress("✅ Output guard passed")
 
-    # ------------------------------------------------------------
-    # 5) OPTIONAL TOKEN USAGE PRINTING
-    # ------------------------------------------------------------
-    if show_tokens:
-        last_msg = response["messages"][-1]
-        if hasattr(last_msg, "response_metadata"):
-            usage = last_msg.response_metadata.get("token_usage", {})
-            if usage:
-                print(f"\n📊 Token Usage:")
-                print(f"   Input tokens:  {usage.get('prompt_tokens', 'N/A')}")
-                print(f"   Output tokens: {usage.get('completion_tokens', 'N/A')}")
-                print(f"   Total tokens:  {usage.get('total_tokens', 'N/A')}")
+    if show_tokens and agent_usage["total_tokens"]:
+        logger.info("Agent tokens: prompt=%d completion=%d total=%d",
+                    agent_usage["prompt_tokens"],
+                    agent_usage["completion_tokens"],
+                    agent_usage["total_tokens"])
 
-    logger.info("Agent answer: %s", answer[:200])
+    logger.info("Agent response: %s", answer)
+    _finalize(answer)
     return answer
