@@ -28,6 +28,7 @@ def _get_guard_llm():
         _guard_llm = ChatGroq(
             model=core_config.GUARD_MODEL_NAME,
             temperature=0,
+            max_tokens=core_config.GUARD_MAX_TOKENS,
             model_kwargs={"response_format": {"type": "json_object"}},
         )
     return _guard_llm

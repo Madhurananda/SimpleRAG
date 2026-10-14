@@ -67,10 +67,10 @@ EMBEDDING_MODEL_NAME = "jina-embeddings-v2-base-en"
 #
 # Alternatives (more headroom, but general-purpose):
 # GUARD_MODEL_NAME = "qwen/qwen3.8-27b"       # 30 RPM / 8K TPM
-# GUARD_MODEL_NAME = "openai/gpt-oss-20b"     # 30 RPM / 8K TPM (same as agent)
+GUARD_MODEL_NAME = "openai/gpt-oss-20b"     # 30 RPM / 8K TPM (same as agent)
 #
 # Current choice:
-GUARD_MODEL_NAME = "qwen/qwen3.8-27b"
+# GUARD_MODEL_NAME = "qwen/qwen3.8-27b"
 
 # ------------------------------------------------------------
 # JUDGE MODEL (evaluation only) — 30 RPM / 8K TPM
@@ -79,6 +79,13 @@ JUDGE_MODEL_NAME = "openai/gpt-oss-120b"
 # Alternative: "openai/gpt-oss-20b"  — 30 RPM / 8K TPM
 
 
+
+# ============================================================
+# GENERATION LIMITS (caps output tokens; critical for Groq TPM)
+# ============================================================
+AGENT_MAX_TOKENS  = 800
+GUARD_MAX_TOKENS  = 600
+JUDGE_MAX_TOKENS  = 600
 
 
 

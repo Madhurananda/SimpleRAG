@@ -59,6 +59,7 @@ def _get_judge_llm() -> ChatOpenAI:
         base_url=PORTKEY_GATEWAY_URL,
         default_headers=headers,
         model=config.JUDGE_MODEL_NAME,
+        max_tokens=config.JUDGE_MAX_TOKENS,
     )
 
 

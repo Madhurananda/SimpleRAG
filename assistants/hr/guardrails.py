@@ -22,6 +22,7 @@ REFUSAL_MESSAGE = "Sorry, I can't help with that request."
 _guard_llm = ChatGroq(
     model=config.GUARD_MODEL_NAME,
     temperature=0,
+    max_tokens=core_config.GUARD_MAX_TOKENS,
     model_kwargs={"response_format": {"type": "json_object"}},
 )
 

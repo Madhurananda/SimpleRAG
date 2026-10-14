@@ -45,4 +45,5 @@ def get_gateway_llm() -> ChatOpenAI:
         base_url=PORTKEY_GATEWAY_URL,
         model=config.LLM_MODEL_NAME,    # ignored when config= is set; Portkey decides
         default_headers=headers,
+        max_tokens=config.AGENT_MAX_TOKENS,
     )
