@@ -62,8 +62,8 @@ logs/
 # ============================================================
 # Local vector indices (regenerable from source docs)
 # ============================================================
-data/**/faiss_index/
-data/**/chroma_db/
+# data/**/faiss_index/
+# data/**/chroma_db/
 
 # ============================================================
 # SQLite checkpoints (removed in favor of Postgres, kept for safety)
